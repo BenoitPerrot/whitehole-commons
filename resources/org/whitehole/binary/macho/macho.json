@@ -1,0 +1,224 @@
+{
+    "licenses": [
+        { "type": "BSD",
+          "url": "https://github.com/BenoitPerrot/whitehole/blob/master/LICENSE" }
+    ],
+
+    "enumerations": {
+        "MagicNumber": {
+            "byteWidth": 4,
+            "members": {
+                "MH_MAGIC": {"v": "0x1120532"},
+                "MH_CIGAM": {"v": "0x31051202"},
+                "MH_MAGIC_64": {"v": "0x1120531"},
+                "MH_CIGAM_64": {"v": "0x30051202"}
+            }
+        },
+        "CPUType": {
+            "byteWidth": 4,
+            "members": {
+                "CPU_TYPE_VAX": {"v": "0x1"},
+                "CPU_TYPE_MC68_0x0": {"v": "0x6"},
+                "CPU_TYPE_X86": {"v": "0x7"},
+                "CPU_TYPE_X86_64": {"v": "0x1000007"},
+                "CPU_TYPE_MIPS": {"v": "0x8"},
+                "CPU_TYPE_MC98000": {"v": "0xa"},
+                "CPU_TYPE_HPPA": {"v": "0xb"},
+                "CPU_TYPE_ARM": {"v": "0xc"},
+                "CPU_TYPE_MC88000": {"v": "0xd"},
+                "CPU_TYPE_SPARC": {"v": "0xb"},
+                "CPU_TYPE_I860": {"v": "0xf"},
+                "CPU_TYPE_ALPHA": {"v": "0x10"},
+                "CPU_TYPE_POWERPC": {"v": "0x12"},
+                "CPU_TYPE_POWERPC64": {"v": "0x1000012"}
+            }
+        },
+        "CPUSubType": {
+            "byteWidth": 4,
+            "members": {
+                "POWERPC_ALL": {"v": "0x1"},
+                "I386_ALL": {"v": "0x2"}
+            }
+        },
+        "FileType": {
+            "byteWidth": 4,
+            "members": {
+                "MH_OBJECT": {"v": "0x1"},
+                "MH_EXECUTE": {"v": "0x2"},
+                "MH_FVMLIB": {"v": "0x3"},
+                "MH_CORE": {"v": "0x4"},
+                "MH_PRELOAD": {"v": "0x5"},
+                "MH_DYLIB": {"v": "0x6"},
+                "MH_DYLINKER": {"v": "0x7"},
+                "MH_BUNDLE": {"v": "0x8"},
+                "MH_DYLIB_STUB": {"v": "0x9"},
+                "MH_DSYM": {"v": "0xa"},
+                "MH_KEXT_BUNDLE": {"v": "0xb"}
+            }
+        }
+    },
+
+    "flagSets": {
+        "HeaderFlags": {
+            "byteWidth": 4,
+            "flags": {
+                "MH_NOUNDEFS": {"v": "0x1"},
+                "MH_INCRLINK": {"v": "0x2"},
+                "MH_DYLDLINK": {"v": "0x4"},
+                "MH_BINDATLOAD": {"v": "0x8"},
+                "MH_PREBOUND": {"v": "0x10"},
+                "MH_SPLIT_SEGS": {"v": "0x20"},
+                "MH_LAZY_INIT": {"v": "0x40"},
+                "MH_TWOLEVEL": {"v": "0x80"},
+                "MH_FORCE_FLAT": {"v": "0x100"},
+                "MH_NOMULTIDEFS": {"v": "0x200"},
+                "MH_NOFIXPREBINDING": {"v": "0x400"},
+                "MH_PREBINDALE": {"v": "0x800"},
+                "MH_ALLMODSBOUND": {"v": "0x1000"},
+                "MH_SUBSECTIONS_VIA_SYMBOLS": {"v": "0x2000"},
+                "MH_CANONICAL": {"v": "0x4000"},
+                "MH_WEAK_DEFINES": {"v": "0x8000"},
+                "MH_BINDS_TO_WEAK": {"v": "0x10000"},
+                "MH_ALLOW_STACK_EXECUTION": {"v": "0x20000"},
+                "MH_ROOT_SAFE": {"v": "0x40000"},
+                "MH_SETUID_SAFE": {"v": "0x80000"},
+                "MH_NO_REEXPORTED_DYLIBS": {"v": "0x100000"},
+                "MH_PIE": {"v": "0x200000"},
+                "MH_DEAD_STRIPPABLE_DYLIB": {"v": "0x400000"}
+            }
+        }
+    },
+
+    "structures": {
+        "MachHeader": {
+            "fields": [
+                {"type": "MagicNumber", "name": "magic"},
+                {"type": "CPUType", "name": "cputype"},
+                {"type": "CPUSubType", "name": "cpusubtype"},
+                {"type": "FileType", "name": "filetype"},
+                {"type": "UInt32", "name": "ncmds"},
+                {"type": "UInt32", "name": "sizeofcmds"},
+                {"type": "HeaderFlags", "name": "flags"}
+            ]
+        },
+        "MachHeader64": {
+            "fields": [
+                {"type": "MagicNumber", "name": "magic"},
+                {"type": "CPUType", "name": "cputype"},
+                {"type": "CPUSubType", "name": "cpusubtype"},
+                {"type": "FileType", "name": "filetype"},
+                {"type": "UInt32", "name": "ncmds"},
+                {"type": "UInt32", "name": "sizeofcmds"},
+                {"type": "HeaderFlags", "name": "flags"},
+                {"type": "UInt32", "name": "reserved"}
+            ]
+        },
+
+        "LoadCommand": {
+            "fields": [
+                {"type": "UInt32", "name": "cmd"},
+                {"type": "UInt32", "name": "cmdsize"}
+            ]
+        },
+        "UUIDCommand": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "array(UInt8, 16)", "name": "uuid"}
+            ]
+        },
+        "SegmentCommand": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "UInt32", "name": "vmaddr"},
+                {"type": "UInt32", "name": "vmsize"},
+                {"type": "UInt32", "name": "fileoff"},
+                {"type": "UInt32", "name": "filesize"},
+                {"type": "", "name": "maxprot"},
+                {"type": "", "name": "initprot"},
+                {"type": "UInt32", "name": "nsects"},
+                {"type": "UInt32", "name": "flags"}
+            ]
+        },
+        "SegmentCommand64": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "UInt64", "name": "vmaddr"},
+                {"type": "UInt64", "name": "vmsize"},
+                {"type": "UInt64", "name": "fileoff"},
+                {"type": "UInt64", "name": "filesize"},
+                {"type": "", "name": "maxprot"},
+                {"type": "", "name": "initprot"},
+                {"type": "UInt32", "name": "nsects"},
+                {"type": "UInt32", "name": "flags"}
+            ]
+        },
+        "SymTabCommand": {
+            "base": "LoadCommand"
+        },
+        "DySymTabCommand": {
+            "base": "LoadCommand"
+        },
+        "ThreadCommand": {
+            "base": "LoadCommand"
+        },
+        "DyLibCommand": {
+            "base": "LoadCommand"
+        },
+        "PreboundCommand": {
+            "base": "LoadCommand"
+        },
+        "DyLinkerCommand": {
+            "base": "LoadCommand"
+        },
+        "RoutinesCommand": {
+            "base": "LoadCommand"
+        },
+        "RoutinesCommand64": {
+            "base": "LoadCommand"
+        },
+        "TwoLevelHintsCommand": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "UInt32", "name": "offset"},
+                {"type": "UInt32", "name": "nhints"}
+            ]
+        },
+        "SubFrameworkCommand": {
+            "base": "LoadCommand"
+        },
+        "SubUmbrellaCommand": {
+            "base": "LoadCommand"
+        },
+        "LibraryCommand": {
+            "base": "LoadCommand"
+        },
+        "ClientCommand64": {
+            "base": "LoadCommand"
+        },
+
+        "Section": {
+            "fields": [
+                {"type": "array(char, 16)", "name": "sectname"},
+                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "UInt32", "name": "addr"},
+                {"type": "UInt32", "name": "size"},
+                {"type": "UInt32", "name": "offset"},
+                {"type": "UInt32", "name": "align"},
+                {"type": "UInt32", "name": "reloff"},
+                {"type": "UInt32", "name": "nreloc"},
+                {"type": "UInt32", "name": "flags"},
+                {"type": "UInt32", "name": "reserved1"},
+                {"type": "UInt32", "name": "reserved2"}
+            ]
+        },
+
+        "TwoLevelHint": {
+            "fields": [
+                {"type": "UInt8", "name": "isub_image"},
+                {"type": "UInt24", "name": "itoc"}
+            ]
+        }
+    }
+}

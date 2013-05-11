@@ -1,0 +1,165 @@
+{
+    "licenses": [
+        { "type": "BSD",
+          "url": "https://github.com/BenoitPerrot/whitehole/blob/master/LICENSE" }
+    ],
+
+    "types": {
+        "Elf32_Addr": "UInt32",
+        "Elf32_Half": "UInt16",
+        "Elf32_Off": "UInt32",
+        "Elf32_Sword": "Int32",
+        "Elf32_Word": "UInt32",
+        "unsigned_char": "UInt8"
+    },
+    "enumerations": {
+        "ObjectFileType": {
+            "byteWidth": 2,
+            "members": {
+                "NONE": {"v": "0x0"},
+                "REL": {"v": "0x1"},
+                "EXEC": {"v": "0x2"},
+                "DYN": {"v": "0x3"},
+                "CORE": {"v": "0x4"},
+                "LOPROC": {"v": "0xff00"},
+                "HIPROC": {"v": "0xffff"}
+            }
+        },
+        "Machine": {
+            "byteWidth": 2,
+            "members": {
+                "NONE": {"v": "0x0"},
+                "M32": {"v": "0x1"},
+                "SPARC": {"v": "0x2"},
+                "386": {"v": "0x3"},
+                "68K": {"v": "0x4"},
+                "88K": {"v": "0x5"},
+                "860": {"v": "0x7"},
+                "MIPS": {"v": "0x8"}
+            }
+        },
+        "Version": {
+            "byteWidth": 1,
+            "members": {
+                "NONE": {"v": "0x0"},
+                "CURRENT": {"v": "0x1"}
+            }
+        },
+        "FileClass": {
+            "byteWidth": 1,
+            "members": {
+                "NONE": {"v": "0x0"},
+                "32": {"v": "0x1"},
+                "64": {"v": "0x2"}
+            }
+        },
+        "DataEncoding": {
+            "byteWidth": 1,
+            "members": {
+                "NONE": {"v": "0x0"},
+                "2LSB": {"v": "0x1"},
+                "2MSB": {"v": "0x2"}
+            }
+        },
+        "SectionHeaderReservedIndex": {
+            "byteWidth": 2,
+            "members": {
+                "UNDEF": {"v": "0x0"},
+                "LORESERVE": {"v": "0xff00"},
+                "LOPROC": {"v": "0xff00"},
+                "HIPROC": {"v": "0xff1f"},
+                "ABS": {"v": "0xfff1"},
+                "COMMON": {"v": "0xfff2"},
+                "HIRESERVE": {"v": "0xffff"}
+            }
+        },
+        "SectionType": {
+            "byteWidth": 2,
+            "members": {
+                "NULL": {"v": "0x0"},
+                "PROGBITS": {"v": "0x1"},
+                "SYMTAB": {"v": "0x2"},
+                "STRTAB": {"v": "0x3"},
+                "RELA": {"v": "0x4"},
+                "HASH": {"v": "0x5"},
+                "DYNAMIC": {"v": "0x6"},
+                "NOTE": {"v": "0x7"},
+                "NOBITS": {"v": "0x8"},
+                "REL": {"v": "0x9"},
+                "SHLIB": {"v": "0x10"},
+                "DYNSYM": {"v": "0x11"},
+                "LOPROC": {"v": "0x70000000"},
+                "HIPROC": {"v": "0x7fffffff"},
+                "LOUSER": {"v": "0x80000000"},
+                "HIUSER": {"v": "0xffffffff"}
+            }
+        }
+    },
+    "flagSets": {
+        "SectionAttributes": {
+            "byteWidth": 2,
+            "flags": {
+                "WRITE": {"v": "0x0001"},
+                "ALLOC": {"v": "0x0002"},
+                "EXECINSTR": {"v": "0x0004"}
+            }
+        }
+    },
+    "structures": {
+        "Identification": {
+            "byteWidth": 16,
+            "fields": [
+                { "name": "MAG0", "type": "UInt8", "value": "0x7"},
+                { "name": "MAG1", "type": "UInt8", "value": "E"},
+                { "name": "MAG2", "type": "UInt8", "value": "L"},
+                { "name": "MAG3", "type": "UInt8", "value": "F"},
+                { "name": "fileClass", "type": "FileClass" },
+                { "name": "DATA", "type": "DataEncoding" },
+                { "name": "VERSION", "type": "Version" },
+                { "name": "PAD", "type": "UInt8", "count": 7 }
+            ]
+        },
+        "Header": {
+            "fields": [
+                { "type": "Identification", "name": "ident" },
+                { "type": "ObjectFileType", "name": "type" },
+                { "type": "Machine", "name": "machine" },
+                { "type": "Version", "name": "version" },
+                { "type": "Elf32_Addr", "name": "entry" },
+                { "type": "Elf32_Off", "name": "phoff" },
+                { "type": "Elf32_Off", "name": "shoff" },
+                { "type": "Elf32_Word", "name": "flags" },
+                { "type": "Elf32_Half", "name": "ehsize" },
+                { "type": "Elf32_Half", "name": "phentsize" },
+                { "type": "Elf32_Half", "name": "phnum" },
+                { "type": "Elf32_Half", "name": "shentsize" },
+                { "type": "Elf32_Half", "name": "shnum" },
+                { "type": "Elf32_Half", "name": "shstrndx" }
+            ]
+        },
+        "SectionHeader": {
+            "fields": [
+                { "type": "Elf32_Word", "name": "name"},
+                { "type": "SectionType", "name": "type"},
+                { "type": "SectionAttributes", "name": "flags"},
+                { "type": "Elf32_Addr", "name": "addr"},
+                { "type": "Elf32_Off", "name": "offset"},
+                { "type": "Elf32_Word", "name": "size"},
+                { "type": "Elf32_Word", "name": "link"},
+                { "type": "Elf32_Word", "name": "info"},
+                { "type": "Elf32_Word", "name": "addralign"},
+                { "type": "Elf32_Word", "name": "entsize"}
+            ]
+        },
+        "SymbolTableEntry": {
+            "fields": [
+                { "type": "Elf32_Word", "name": "name" },
+                { "type": "Elf32_Addr", "name": "value" },
+                { "type": "Elf32_Word", "name": "size" },
+                { "type": "unsigned_char", "name": "info" },
+                { "type": "unsigned_char", "name": "other" },
+                { "type": "Elf32_Half", "name": "shndex" }
+            ]
+        }
+    }
+}

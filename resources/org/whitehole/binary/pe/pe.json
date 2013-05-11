@@ -1,0 +1,289 @@
+{
+    "licenses": [
+        { "type": "BSD",
+          "url": "https://github.com/BenoitPerrot/whitehole/blob/master/LICENSE" }
+    ],
+
+    "enumerations": {
+        "MagicNumber": {
+            "byteWidth": 2,
+            "members": {
+                "PE32": {"v": "0x10b"},
+                "PE32x": {"v": "0x20b"}
+            }
+        },
+        "WindowsSubsystem": {
+            "byteWidth": 2,
+            "members": {
+                "UNKNOWN": {"v": "0x0"},
+                "NATIVE": {"v": "0x1"},
+                "WINDOWS_GUI": {"v": "0x2"},
+                "WINDOWS_CUI": {"v": "0x3"},
+                "POSIX_CUI": {"v": "0x7"},
+                "WINDOWS_CE_GUI": {"v": "0x9"},
+                "EFI_APPLICATION": {"v": "0xa"},
+                "EFI_BOOT_SERVICE_DRIVER": {"v": "0xb"},
+                "EFI_RUNTIME_DRIVER": {"v": "0xc"},
+                "EFI_ROM": {"v": "0xd"},
+                "XBOX": {"v": "0xe"}
+            }
+        },
+        "MachineType": {
+            "byteWidth": 2,
+            "members": {
+                "UNKNOWN": {"v": "0x0"},
+                "AM33": {"v": "0x1d3"},
+                "AMD64": {"v": "0x8664"},
+                "ARM": {"v": "0x1c0"},
+                "EBC": {"v": "0xebc"},
+                "I386": {"v": "0x14c"},
+                "IA64": {"v": "0x200"},
+                "M32R": {"v": "0x9041"},
+                "MIPS16": {"v": "0x266"},
+                "MIPSFPU": {"v": "0x366"},
+                "MIPSFPU16": {"v": "0x466"},
+                "POWERPC": {"v": "0x1f0"},
+                "POWERPCFP": {"v": "0x1f1"},
+                "R4000": {"v": "0x166"},
+                "SH3": {"v": "0x1a2"},
+                "SH3DSP": {"v": "0x1a3"},
+                "SH4": {"v": "0x1a6"},
+                "SH5": {"v": "0x1a8"},
+                "THUMB": {"v": "0x1c2"},
+                "WCEMIPSV2": {"v": "0x169"}
+            }
+        }
+    },
+
+    "flagSets": {
+        "Characteristics": {
+            "byteWidth": 2,
+            "flags": {
+                "RELOCS_STRIPPED": {"v": "0x1"},
+                "EXECUTABLE_IMAGE": {"v": "0x2"},
+                "LINE_NUMS_STRIPPED": {"v": "0x4"},
+                "LOCAL_SYMS_STRIPPED": {"v": "0x8"},
+                "AGGRESSIVE_WS_TRIM": {"v": "0x10"},
+                "LARGE_ADDRESS_AWARE": {"v": "0x20"},
+                "RESERVED": {"v": "0x40"},
+                "BYTES_REVERSED_LO": {"v": "0x80"},
+                "_32BIT_MACHINE": {"v": "0x100"},
+                "DEBUG_STRIPPED": {"v": "0x200"},
+                "REMOVABLE_RUN_FROM_SWAP": {"v": "0x400"},
+                "NET_RUN_FROM_SWAP": {"v": "0x800"},
+                "SYSTEM": {"v": "0x1000"},
+                "DLL": {"v": "0x2000"},
+                "UP_SYSTEM_ONLY": {"v": "0x4000"},
+                "BYTES_REVERSED_HI": {"v": "0x8000"}
+            }
+        },
+        "DllCharacteristics": {
+            "byteWidth": 2,
+            "flags": {
+                "RESERVED1": {"v": "0x1"},
+                "RESERVED2": {"v": "0x2"},
+                "RESERVED3": {"v": "0x4"},
+                "RESERVED4": {"v": "0x8"},
+                "DYNAMIC_BASE": {"v": "0x40"},
+                "FORCE_INTEGRITY": {"v": "0x80"},
+                "NX_COMPAT": {"v": "0x100"},
+                "NO_ISOLATION": {"v": "0x200"},
+                "NO_SEH": {"v": "0x400"},
+                "NO_BIND": {"v": "0x800"},
+                "RESERVED5": {"v": "0x1000"},
+                "WDM_DRIVER": {"v": "0x2000"},
+                "TERMINAL_SERVER_AWARE": {"v": "0x8000"}
+            }
+        },
+        "SectionFlags": {
+            "byteWidth": 4,
+            "flags": {
+                "RESERVED1": {"v": "0x1"},
+                "RESERVED2": {"v": "0x2"},
+                "RESERVED3": {"v": "0x4"},
+                "TYPE_NO_PAD": {"v": "0x8"},
+                "RESERVED4": {"v": "0x10"},
+                "CNT_CODE": {"v": "0x20"},
+                "CNT_INITIALIZED_DATA": {"v": "0x40"},
+                "CNT_UNINITIALIZED_DATA": {"v": "0x80"},
+                "LNK_OTHER": {"v": "0x100"},
+                "LNK_INFO": {"v": "0x200"},
+                "RESERVED5": {"v": "0x400"},
+                "LNK_REMOVE": {"v": "0x800"},
+                "LNK_COMDAT": {"v": "0x1000"},
+                "GPREL": {"v": "0x8000"},
+                "MEM_PURGEABLE": {"v": "0x20000"},
+                "MEM_16BIT": {"v": "0x20000"},
+                "MEM_LOCKED": {"v": "0x40000"},
+                "MEM_PRELOAD": {"v": "0x80000"},
+                "ALIGN_1BYTES": {"v": "0x100000"},
+                "ALIGN_2BYTES": {"v": "0x200000"},
+                "ALIGN_4BYTES": {"v": "0x300000"},
+                "ALIGN_8BYTES": {"v": "0x400000"},
+                "ALIGN_16BYTES": {"v": "0x500000"},
+                "ALIGN_32BYTES": {"v": "0x600000"},
+                "ALIGN_64BYTES": {"v": "0x700000"},
+                "ALIGN_128BYTES": {"v": "0x800000"},
+                "ALIGN_256BYTES": {"v": "0x900000"},
+                "ALIGN_512BYTES": {"v": "0xa00000"},
+                "ALIGN_1024BYTES": {"v": "0xb00000"},
+                "ALIGN_2048BYTES": {"v": "0xc00000"},
+                "ALIGN_4096BYTES": {"v": "0xd00000"},
+                "ALIGN_8192BYTES": {"v": "0xe00000"},
+                "LNK_NRELOC_OVFL": {"v": "0x1000000"},
+                "MEM_DISCARDABLE": {"v": "0x2000000"},
+                "MEM_NOT_CACHED": {"v": "0x4000000"},
+                "MEM_NOT_PAGED": {"v": "0x8000000"},
+                "MEM_SHARED": {"v": "0x10000000"},
+                "MEM_EXECUTE": {"v": "0x20000000"},
+                "MEM_READ": {"v": "0x40000000"},
+                "MEM_WRITE": {"v": "0x80000000"}
+            }
+        }
+    },
+    "structures": {
+        "COFFHeader": {
+            "fields": [
+                {"offset": 0, "type": "MachineType", "name": "machine"},
+                {"offset": 2, "type": "UInt16", "name": "section_count"},
+                {"offset": 4, "type": "UInt32", "name": "time_date_stamp"},
+                {"offset": 8, "type": "UInt32", "name": "symbol_table_pointer"},
+                {"offset": 12, "type": "UInt32", "name": "symbol_count"},
+                {"offset": 16, "type": "UInt16", "name": "optional_header_size"},
+                {"offset": 18, "type": "Characteristics", "name": "characteristics"}
+            ]
+        },
+        "DataDirectory": {
+            "fields": [
+                {"offset": 0, "type": "UInt32", "name": "virtual address"},
+                {"offset": 4, "type": "UInt32", "name": "size"}
+            ]
+        },
+        "ImportDirectoryTableEntry": {
+            "fields": [
+                {"offset": 0, "type": "UInt32", "name": "import lookup table R V A"},
+                {"offset": 4, "type": "UInt32", "name": "time stamp"},
+                {"offset": 8, "type": "UInt32", "name": "forwarder chain"},
+                {"offset": 12, "type": "UInt32", "name": "name R V A"},
+                {"offset": 16, "type": "UInt32", "name": "import address table R V A"}
+            ]
+        },
+        "WindowsSpecificPEFields": {
+            "generateReader": false,
+            "generate": false,
+            "fields": []
+        },
+        "OptionalHeaderPE32Fields": {
+            "base": "WindowsSpecificPEFields",
+            "fields": [
+                {"offset": 0, "type": "UInt32", "name": "data base"},
+                {"offset": 4, "type": "UInt32", "name": "image base"},
+                {"offset": 8, "type": "UInt32", "name": "section alignment"},
+                {"offset": 12, "type": "UInt32", "name": "file alignment"},
+                {"offset": 16, "type": "UInt16", "name": "major operating system version"},
+                {"offset": 18, "type": "UInt16", "name": "minor operating system version"},
+                {"offset": 20, "type": "UInt16", "name": "major image version"},
+                {"offset": 22, "type": "UInt16", "name": "minor image version"},
+                {"offset": 24, "type": "UInt16", "name": "major subsystem version"},
+                {"offset": 26, "type": "UInt16", "name": "minor subsystem version"},
+                {"offset": 28, "type": "UInt32", "name": "win32 version value"},
+                {"offset": 32, "type": "UInt32", "name": "image size"},
+                {"offset": 36, "type": "UInt32", "name": "headers size"},
+                {"offset": 40, "type": "UInt32", "name": "checksum"},
+                {"offset": 44, "type": "WindowsSubsystem", "name": "subsystem"},
+                {"offset": 46, "type": "DllCharacteristics", "name": "dll characteristics"},
+                {"offset": 48, "type": "UInt32", "name": "stack reserve size"},
+                {"offset": 52, "type": "UInt32", "name": "stack commit size"},
+                {"offset": 56, "type": "UInt32", "name": "heap reserve size"},
+                {"offset": 60, "type": "UInt32", "name": "heap commit size"},
+                {"offset": 64, "type": "UInt32", "name": "loader flags"},
+                {"offset": 68, "type": "UInt32", "name": "rva and size count"}
+            ]
+        },
+        "OptionalHeaderPE32xFields": {
+            "base": "WindowsSpecificPEFields",
+            "fields": [
+                {"offset": 0, "type": "UInt64", "name": "image base"},
+                {"offset": 8, "type": "UInt32", "name": "section alignment"},
+                {"offset": 12, "type": "UInt32", "name": "file alignment"},
+                {"offset": 16, "type": "UInt16", "name": "major operating system version"},
+                {"offset": 18, "type": "UInt16", "name": "minor operating system version"},
+                {"offset": 20, "type": "UInt16", "name": "major image version"},
+                {"offset": 22, "type": "UInt16", "name": "minor image version"},
+                {"offset": 24, "type": "UInt16", "name": "major subsystem version"},
+                {"offset": 26, "type": "UInt16", "name": "minor subsystem version"},
+                {"offset": 28, "type": "UInt32", "name": "win32 version value"},
+                {"offset": 32, "type": "UInt32", "name": "image size"},
+                {"offset": 36, "type": "UInt32", "name": "headers size"},
+                {"offset": 40, "type": "UInt32", "name": "checksum"},
+                {"offset": 44, "type": "WindowsSubsystem", "name": "subsystem"},
+                {"offset": 46, "type": "DllCharacteristics", "name": "dll characteristics"},
+                {"offset": 48, "type": "UInt64", "name": "stack reserve size"},
+                {"offset": 56, "type": "UInt64", "name": "stack commit size"},
+                {"offset": 64, "type": "UInt64", "name": "heap reserve size"},
+                {"offset": 72, "type": "UInt64", "name": "heap commit size"},
+                {"offset": 80, "type": "UInt32", "name": "loader flags"},
+                {"offset": 84, "type": "UInt32", "name": "rva and size count"}
+            ]
+        },
+        "OptionalHeaderStandardFields": {
+            "fields": [
+                {"offset": 0, "type": "MagicNumber", "name": "magic"},
+                {"offset": 2, "type": "UInt8", "name": "major linker version"},
+                {"offset": 3, "type": "UInt8", "name": "minor linker version"},
+                {"offset": 4, "type": "UInt32", "name": "code size"},
+                {"offset": 8, "type": "UInt32", "name": "initialized data size"},
+                {"offset": 12, "type": "UInt32", "name": "uninitialized data size"},
+                {"offset": 16, "type": "UInt32", "name": "entry point address"},
+                {"offset": 20, "type": "UInt32", "name": "code base"}
+            ]
+        },
+        "SectionHeader": {
+            "fields": [
+                {"offset": 0, "type": "UInt64", "name": "name"},
+                {"offset": 8, "type": "UInt32", "name": "virtual size"},
+                {"offset": 12, "type": "UInt32", "name": "virtual address"},
+                {"offset": 16, "type": "UInt32", "name": "raw data size"},
+                {"offset": 20, "type": "UInt32", "name": "raw data pointer"},
+                {"offset": 24, "type": "UInt32", "name": "relocations pointer"},
+                {"offset": 28, "type": "UInt32", "name": "line numbers pointer"},
+                {"offset": 32, "type": "UInt16", "name": "relocation count"},
+                {"offset": 34, "type": "UInt16", "name": "line number count"},
+                {"offset": 36, "type": "SectionFlags", "name": "characteristics"}
+            ]
+        },
+        "OptionalHeader": {
+            "generateReader": false,
+            "fields": [
+                {"type": "OptionalHeaderStandardFields", "name": "standard fields"},
+                {"type": "WindowsSpecificPEFields", "name": "windows specific fields", "set": true},
+                {"type": "DataDirectory", "name": "export table"},
+                {"type": "DataDirectory", "name": "import table"},
+                {"type": "DataDirectory", "name": "resource table"},
+                {"type": "DataDirectory", "name": "exception table"},
+                {"type": "DataDirectory", "name": "certificate table"},
+                {"type": "DataDirectory", "name": "base_relocation table"},
+                {"type": "DataDirectory", "name": "debug"},
+                {"type": "DataDirectory", "name": "architecture"},
+                {"type": "DataDirectory", "name": "global ptr"},
+                {"type": "DataDirectory", "name": "T L S table"},
+                {"type": "DataDirectory", "name": "load config table"},
+                {"type": "DataDirectory", "name": "bound import"},
+                {"type": "DataDirectory", "name": "I A T"},
+                {"type": "DataDirectory", "name": "delay import descriptor"},
+                {"type": "DataDirectory", "name": "C L R runtime header"},
+                {"type": "DataDirectory", "name": "reserved"}
+            ]
+        },
+        "ImageFile": {
+            "generateReader": false,
+            "fields": [
+            	{"offset": "0x3c", "type": "UInt32", "name": "signature_offset", "keep": false},
+                {"offset": "this.signature_offset", "type": "UInt32", "name": "signature", "value": "0x50450000", "keep": false},
+            	{"type": "COFFHeader", "name": "coff_header" },
+            	{"type": "OptionalHeader", "name": "optional_header" },
+            	{"type": "SectionHeader", "count": "this.coff_header.section_count", "name": "section headers"}
+            ]
+        }
+    }
+}
