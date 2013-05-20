@@ -67,7 +67,7 @@
                 "LARGE_ADDRESS_AWARE": {"v": "0x20"},
                 "RESERVED": {"v": "0x40"},
                 "BYTES_REVERSED_LO": {"v": "0x80"},
-                "_32BIT_MACHINE": {"v": "0x100"},
+                "32BIT_MACHINE": {"v": "0x100"},
                 "DEBUG_STRIPPED": {"v": "0x200"},
                 "REMOVABLE_RUN_FROM_SWAP": {"v": "0x400"},
                 "NET_RUN_FROM_SWAP": {"v": "0x800"},
@@ -169,8 +169,6 @@
             ]
         },
         "WindowsSpecificPEFields": {
-            "generateReader": false,
-            "generate": false,
             "fields": []
         },
         "OptionalHeaderPE32Fields": {
@@ -253,7 +251,6 @@
             ]
         },
         "OptionalHeader": {
-            "generateReader": false,
             "fields": [
                 {"type": "OptionalHeaderStandardFields", "name": "standard fields"},
                 {"type": "WindowsSpecificPEFields", "name": "windows specific fields", "set": true},
@@ -276,7 +273,6 @@
             ]
         },
         "ImageFile": {
-            "generateReader": false,
             "fields": [
             	{"offset": "0x3c", "type": "UInt32", "name": "signature_offset", "keep": false},
                 {"offset": "this.signature_offset", "type": "UInt32", "name": "signature", "value": "0x50450000", "keep": false},
