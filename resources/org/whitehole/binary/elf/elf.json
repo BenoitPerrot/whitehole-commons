@@ -109,14 +109,22 @@
         "Identification": {
             "byteWidth": 16,
             "fields": [
-                { "name": "MAG0", "type": "UInt8", "value": "0x7"},
-                { "name": "MAG1", "type": "UInt8", "value": "E"},
-                { "name": "MAG2", "type": "UInt8", "value": "L"},
-                { "name": "MAG3", "type": "UInt8", "value": "F"},
-                { "name": "fileClass", "type": "FileClass" },
-                { "name": "DATA", "type": "DataEncoding" },
-                { "name": "VERSION", "type": "Version" },
-                { "name": "PAD", "type": "UInt8", "count": 7 }
+                { "type": "UInt8", "name": "MAG0", "value": "0x7"},
+                { "type": "UInt8", "name": "MAG1", "value": "E"},
+                { "type": "UInt8", "name": "MAG2", "value": "L"},
+                { "type": "UInt8", "name": "MAG3", "value": "F"},
+                { "type": "FileClass", "name": "CLASS" },
+                { "type": "DataEncoding", "name": "DATA" },
+                { "type": "Version", "name": "VERSION" },
+                { "type": "UInt8", "name": "PAD0" },
+                { "type": "UInt8", "name": "PAD1" },
+                { "type": "UInt8", "name": "PAD2" },
+                { "type": "UInt8", "name": "PAD3" },
+                { "type": "UInt8", "name": "PAD4" },
+                { "type": "UInt8", "name": "PAD5" },
+                { "type": "UInt8", "name": "PAD6" },
+                { "type": "UInt8", "name": "PAD7" },
+                { "type": "UInt8", "name": "PAD8" }
             ]
         },
         "Header": {
