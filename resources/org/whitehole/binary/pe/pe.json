@@ -145,11 +145,11 @@
         "COFFHeader": {
             "fields": [
                 {"offset": 0, "type": "MachineType", "name": "machine"},
-                {"offset": 2, "type": "UInt16", "name": "section_count"},
-                {"offset": 4, "type": "UInt32", "name": "time_date_stamp"},
-                {"offset": 8, "type": "UInt32", "name": "symbol_table_pointer"},
-                {"offset": 12, "type": "UInt32", "name": "symbol_count"},
-                {"offset": 16, "type": "UInt16", "name": "optional_header_size"},
+                {"offset": 2, "type": "UInt16", "name": "number of sections"},
+                {"offset": 4, "type": "UInt32", "name": "time date stamp"},
+                {"offset": 8, "type": "UInt32", "name": "pointer to symbol table"},
+                {"offset": 12, "type": "UInt32", "name": "number of symbols"},
+                {"offset": 16, "type": "UInt16", "name": "size of optional header"},
                 {"offset": 18, "type": "Characteristics", "name": "characteristics"}
             ]
         },
@@ -174,7 +174,7 @@
         "OptionalHeaderPE32Fields": {
             "base": "WindowsSpecificPEFields",
             "fields": [
-                {"offset": 0, "type": "UInt32", "name": "data base"},
+                {"offset": 0, "type": "UInt32", "name": "base of data"},
                 {"offset": 4, "type": "UInt32", "name": "image base"},
                 {"offset": 8, "type": "UInt32", "name": "section alignment"},
                 {"offset": 12, "type": "UInt32", "name": "file alignment"},
@@ -185,17 +185,17 @@
                 {"offset": 24, "type": "UInt16", "name": "major subsystem version"},
                 {"offset": 26, "type": "UInt16", "name": "minor subsystem version"},
                 {"offset": 28, "type": "UInt32", "name": "win32 version value"},
-                {"offset": 32, "type": "UInt32", "name": "image size"},
-                {"offset": 36, "type": "UInt32", "name": "headers size"},
+                {"offset": 32, "type": "UInt32", "name": "size of image"},
+                {"offset": 36, "type": "UInt32", "name": "size of headers"},
                 {"offset": 40, "type": "UInt32", "name": "checksum"},
                 {"offset": 44, "type": "WindowsSubsystem", "name": "subsystem"},
                 {"offset": 46, "type": "DllCharacteristics", "name": "dll characteristics"},
-                {"offset": 48, "type": "UInt32", "name": "stack reserve size"},
-                {"offset": 52, "type": "UInt32", "name": "stack commit size"},
-                {"offset": 56, "type": "UInt32", "name": "heap reserve size"},
-                {"offset": 60, "type": "UInt32", "name": "heap commit size"},
+                {"offset": 48, "type": "UInt32", "name": "size of stack reserve"},
+                {"offset": 52, "type": "UInt32", "name": "size of stack commit"},
+                {"offset": 56, "type": "UInt32", "name": "size of heap reserve"},
+                {"offset": 60, "type": "UInt32", "name": "size of heap commit"},
                 {"offset": 64, "type": "UInt32", "name": "loader flags"},
-                {"offset": 68, "type": "UInt32", "name": "rva and size count"}
+                {"offset": 68, "type": "UInt32", "name": "number of rva and size"}
             ]
         },
         "OptionalHeaderPE32xFields": {
@@ -211,17 +211,17 @@
                 {"offset": 24, "type": "UInt16", "name": "major subsystem version"},
                 {"offset": 26, "type": "UInt16", "name": "minor subsystem version"},
                 {"offset": 28, "type": "UInt32", "name": "win32 version value"},
-                {"offset": 32, "type": "UInt32", "name": "image size"},
-                {"offset": 36, "type": "UInt32", "name": "headers size"},
+                {"offset": 32, "type": "UInt32", "name": "size of image"},
+                {"offset": 36, "type": "UInt32", "name": "size of headers"},
                 {"offset": 40, "type": "UInt32", "name": "checksum"},
                 {"offset": 44, "type": "WindowsSubsystem", "name": "subsystem"},
                 {"offset": 46, "type": "DllCharacteristics", "name": "dll characteristics"},
-                {"offset": 48, "type": "UInt64", "name": "stack reserve size"},
-                {"offset": 56, "type": "UInt64", "name": "stack commit size"},
-                {"offset": 64, "type": "UInt64", "name": "heap reserve size"},
-                {"offset": 72, "type": "UInt64", "name": "heap commit size"},
+                {"offset": 48, "type": "UInt64", "name": "size of stack reserve"},
+                {"offset": 56, "type": "UInt64", "name": "size of stack commit"},
+                {"offset": 64, "type": "UInt64", "name": "size of heap reserve"},
+                {"offset": 72, "type": "UInt64", "name": "size of heap commit"},
                 {"offset": 80, "type": "UInt32", "name": "loader flags"},
-                {"offset": 84, "type": "UInt32", "name": "rva and size count"}
+                {"offset": 84, "type": "UInt32", "name": "number of rva and size"}
             ]
         },
         "OptionalHeaderStandardFields": {
@@ -229,11 +229,11 @@
                 {"offset": 0, "type": "MagicNumber", "name": "magic"},
                 {"offset": 2, "type": "UInt8", "name": "major linker version"},
                 {"offset": 3, "type": "UInt8", "name": "minor linker version"},
-                {"offset": 4, "type": "UInt32", "name": "code size"},
-                {"offset": 8, "type": "UInt32", "name": "initialized data size"},
-                {"offset": 12, "type": "UInt32", "name": "uninitialized data size"},
-                {"offset": 16, "type": "UInt32", "name": "entry point address"},
-                {"offset": 20, "type": "UInt32", "name": "code base"}
+                {"offset": 4, "type": "UInt32", "name": "size of code"},
+                {"offset": 8, "type": "UInt32", "name": "size of initialized data"},
+                {"offset": 12, "type": "UInt32", "name": "size of uninitialized data"},
+                {"offset": 16, "type": "UInt32", "name": "address of entry point"},
+                {"offset": 20, "type": "UInt32", "name": "base of code"}
             ]
         },
         "SectionHeader": {
@@ -241,12 +241,12 @@
                 {"offset": 0, "type": "UInt64", "name": "name"},
                 {"offset": 8, "type": "UInt32", "name": "virtual size"},
                 {"offset": 12, "type": "UInt32", "name": "virtual address"},
-                {"offset": 16, "type": "UInt32", "name": "raw data size"},
-                {"offset": 20, "type": "UInt32", "name": "raw data pointer"},
-                {"offset": 24, "type": "UInt32", "name": "relocations pointer"},
-                {"offset": 28, "type": "UInt32", "name": "line numbers pointer"},
-                {"offset": 32, "type": "UInt16", "name": "relocation count"},
-                {"offset": 34, "type": "UInt16", "name": "line number count"},
+                {"offset": 16, "type": "UInt32", "name": "size of raw data"},
+                {"offset": 20, "type": "UInt32", "name": "pointer to raw data"},
+                {"offset": 24, "type": "UInt32", "name": "pointer to relocations"},
+                {"offset": 28, "type": "UInt32", "name": "pointer to line numbers"},
+                {"offset": 32, "type": "UInt16", "name": "number of relocations"},
+                {"offset": 34, "type": "UInt16", "name": "number of line numbers"},
                 {"offset": 36, "type": "SectionFlags", "name": "characteristics"}
             ]
         },
