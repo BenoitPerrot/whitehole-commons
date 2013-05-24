@@ -4,6 +4,10 @@
           "url": "https://github.com/BenoitPerrot/whitehole/blob/master/LICENSE" }
     ],
 
+    "aliases": {
+        "lc_str": "UInt32",
+    },
+
     "enumerations": {
         "MagicNumber": {
             "byteWidth": 4,
@@ -26,7 +30,7 @@
                 "CPU_TYPE_HPPA": {"v": "0xb"},
                 "CPU_TYPE_ARM": {"v": "0xc"},
                 "CPU_TYPE_MC88000": {"v": "0xd"},
-                "CPU_TYPE_SPARC": {"v": "0xb"},
+                "CPU_TYPE_SPARC": {"v": "0xe"},
                 "CPU_TYPE_I860": {"v": "0xf"},
                 "CPU_TYPE_ALPHA": {"v": "0x10"},
                 "CPU_TYPE_POWERPC": {"v": "0x12"},
@@ -102,14 +106,8 @@
             ]
         },
         "MachHeader64": {
+        	"base": "MachHeader",
             "fields": [
-                {"type": "MagicNumber", "name": "magic"},
-                {"type": "CPUType", "name": "cputype"},
-                {"type": "CPUSubType", "name": "cpusubtype"},
-                {"type": "FileType", "name": "filetype"},
-                {"type": "UInt32", "name": "ncmds"},
-                {"type": "UInt32", "name": "sizeofcmds"},
-                {"type": "HeaderFlags", "name": "flags"},
                 {"type": "UInt32", "name": "reserved"}
             ]
         },
@@ -123,19 +121,19 @@
         "UUIDCommand": {
             "base": "LoadCommand",
             "fields": [
-                {"type": "array(UInt8, 16)", "name": "uuid"}
+                {"type": "ByteArray16", "name": "uuid"}
             ]
         },
         "SegmentCommand": {
             "base": "LoadCommand",
             "fields": [
-                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "ByteArray16", "name": "segname"},
                 {"type": "UInt32", "name": "vmaddr"},
                 {"type": "UInt32", "name": "vmsize"},
                 {"type": "UInt32", "name": "fileoff"},
                 {"type": "UInt32", "name": "filesize"},
-                {"type": "", "name": "maxprot"},
-                {"type": "", "name": "initprot"},
+                {"type": "UInt32", "name": "maxprot"},
+                {"type": "UInt32", "name": "initprot"},
                 {"type": "UInt32", "name": "nsects"},
                 {"type": "UInt32", "name": "flags"}
             ]
@@ -143,40 +141,102 @@
         "SegmentCommand64": {
             "base": "LoadCommand",
             "fields": [
-                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "ByteArray16", "name": "segname"},
                 {"type": "UInt64", "name": "vmaddr"},
                 {"type": "UInt64", "name": "vmsize"},
                 {"type": "UInt64", "name": "fileoff"},
                 {"type": "UInt64", "name": "filesize"},
-                {"type": "", "name": "maxprot"},
-                {"type": "", "name": "initprot"},
+                {"type": "UInt32", "name": "maxprot"},
+                {"type": "UInt32", "name": "initprot"},
                 {"type": "UInt32", "name": "nsects"},
                 {"type": "UInt32", "name": "flags"}
             ]
         },
         "SymTabCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "UInt32", "name": "symoff"},
+                {"type": "UInt32", "name": "nsyms"},
+                {"type": "UInt32", "name": "stroff"},
+                {"type": "UInt32", "name": "strsize"}
+			]
         },
         "DySymTabCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+				{"type": "UInt32", "name": "ilocalsym"},
+				{"type": "UInt32", "name": "nlocalsym"},
+				{"type": "UInt32", "name": "iextdefsym"},
+				{"type": "UInt32", "name": "nextdefsym"},
+				{"type": "UInt32", "name": "iundefsym"},
+				{"type": "UInt32", "name": "nundefsym"},
+				{"type": "UInt32", "name": "tocoff"},
+				{"type": "UInt32", "name": "ntoc"},
+				{"type": "UInt32", "name": "modtaboff"},
+				{"type": "UInt32", "name": "nmodtab"},
+				{"type": "UInt32", "name": "extrefsymoff"},
+				{"type": "UInt32", "name": "nextrefsyms"},
+				{"type": "UInt32", "name": "indirectsymoff"},
+				{"type": "UInt32", "name": "nindirectsyms"},
+				{"type": "UInt32", "name": "extreloff"},
+				{"type": "UInt32", "name": "nextrel"},
+				{"type": "UInt32", "name": "locreloff"},
+				{"type": "UInt32", "name": "nlocrel"}
+			]
         },
         "ThreadCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "UInt32", "name": "flavor"},
+            	{"type": "UInt32", "name": "count"},
+            	{"type": "CpuThreadState", "name": "state"}
+            ]
         },
         "DyLibCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "DyLib", "name": "dylib"}
+            ]
         },
         "PreboundCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "lc_str", "name": "name"},
+            	{"type": "UInt32", "name": "nmodules"},
+            	{"type": "lc_str", "name": "linked_modules"}
+            ]
         },
         "DyLinkerCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "lc_str", "name": "name"}
+            ]
         },
         "RoutinesCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "UInt32", "name": "init_address"},
+				{"type": "UInt32", "name": "init_module"},
+				{"type": "UInt32", "name": "reserved1"},
+				{"type": "UInt32", "name": "reserved2"},
+				{"type": "UInt32", "name": "reserved3"},
+				{"type": "UInt32", "name": "reserved4"},
+				{"type": "UInt32", "name": "reserved5"},
+				{"type": "UInt32", "name": "reserved6"}
+            ]
         },
         "RoutinesCommand64": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+            	{"type": "UInt64", "name": "init_address"},
+				{"type": "UInt64", "name": "init_module"},
+				{"type": "UInt64", "name": "reserved1"},
+				{"type": "UInt64", "name": "reserved2"},
+				{"type": "UInt64", "name": "reserved3"},
+				{"type": "UInt64", "name": "reserved4"},
+				{"type": "UInt64", "name": "reserved5"},
+				{"type": "UInt64", "name": "reserved6"}
+            ]
         },
         "TwoLevelHintsCommand": {
             "base": "LoadCommand",
@@ -186,24 +246,52 @@
             ]
         },
         "SubFrameworkCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "lc_str", "name": "umbrella"}
+			]
         },
         "SubUmbrellaCommand": {
-            "base": "LoadCommand"
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "lc_str", "name": "sub_umbrella"}
+			]
         },
-        "LibraryCommand": {
-            "base": "LoadCommand"
+        "SubLibraryCommand": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "lc_str", "name": "sub_library"}
+			]
         },
-        "ClientCommand64": {
-            "base": "LoadCommand"
+        "SubClientCommand": {
+            "base": "LoadCommand",
+            "fields": [
+                {"type": "lc_str", "name": "client"}
+			]
         },
 
         "Section": {
             "fields": [
-                {"type": "array(char, 16)", "name": "sectname"},
-                {"type": "array(char, 16)", "name": "segname"},
+                {"type": "ByteArray16", "name": "sectname"},
+                {"type": "ByteArray16", "name": "segname"},
                 {"type": "UInt32", "name": "addr"},
                 {"type": "UInt32", "name": "size"},
+                {"type": "UInt32", "name": "offset"},
+                {"type": "UInt32", "name": "align"},
+                {"type": "UInt32", "name": "reloff"},
+                {"type": "UInt32", "name": "nreloc"},
+                {"type": "UInt32", "name": "flags"},
+                {"type": "UInt32", "name": "reserved1"},
+                {"type": "UInt32", "name": "reserved2"}
+            ]
+        },
+        
+        "Section64": {
+            "fields": [
+                {"type": "ByteArray16", "name": "sectname"},
+                {"type": "ByteArray16", "name": "segname"},
+                {"type": "UInt64", "name": "addr"},
+                {"type": "UInt64", "name": "size"},
                 {"type": "UInt32", "name": "offset"},
                 {"type": "UInt32", "name": "align"},
                 {"type": "UInt32", "name": "reloff"},
@@ -219,6 +307,75 @@
                 {"type": "UInt8", "name": "isub_image"},
                 {"type": "UInt24", "name": "itoc"}
             ]
+        },
+        
+        "DyLib": {
+        	"fields": [
+				{"type": "lc_str", "name": "name"},
+        		{"type": "UInt32", "name": "timestamp"},
+        		{"type": "UInt32", "name": "current_version"},
+        		{"type": "UInt32", "name": "compatibility_version"}
+        	]
+        },
+        
+        "DyLibTableOfContents": {
+        	"fields": [
+        		{"type": "UInt32", "name": "symbol_index"},
+        		{"type": "UInt32", "name": "module_index"}
+        	]
+        },
+        
+        "DyLibModule": {
+        	"fields": [
+        		{"type": "UInt32", "name": "module_name"},
+				{"type": "UInt32", "name": "iextdefsym"},
+				{"type": "UInt32", "name": "nextdefsym"},
+				{"type": "UInt32", "name": "irefsym"},
+				{"type": "UInt32", "name": "nrefsym"},
+				{"type": "UInt32", "name": "ilocalsym"},
+				{"type": "UInt32", "name": "nlocalsym"},
+				{"type": "UInt32", "name": "iextrel"},
+				{"type": "UInt32", "name": "nextrel"},
+				{"type": "UInt32", "name": "iinit_iterm"},
+				{"type": "UInt32", "name": "ninit_nterm"},
+				{"type": "UInt32", "name": "objc_module_info_addr"},
+				{"type": "UInt32", "name": "objc_module_info_size"}
+        	]
+        },
+        "DyLibModule64": {
+        	"fields": [
+        		{"type": "UInt32", "name": "module_name"},
+				{"type": "UInt32", "name": "iextdefsym"},
+				{"type": "UInt32", "name": "nextdefsym"},
+				{"type": "UInt32", "name": "irefsym"},
+				{"type": "UInt32", "name": "nrefsym"},
+				{"type": "UInt32", "name": "ilocalsym"},
+				{"type": "UInt32", "name": "nlocalsym"},
+				{"type": "UInt32", "name": "iextrel"},
+				{"type": "UInt32", "name": "nextrel"},
+				{"type": "UInt32", "name": "iinit_iterm"},
+				{"type": "UInt32", "name": "ninit_nterm"},
+				{"type": "UInt32", "name": "objc_module_info_size"},
+				{"type": "UInt64", "name": "objc_module_info_addr"}
+        	]
+        },
+        
+        "DyLibReference": {
+            "fields": [
+                {"type": "UInt24", "name": "isym"},
+                {"type": "UInt8", "name": "flags"}
+            ]
+        },
+        
+        "RelocationInfo": {
+        	"fields": [
+        		{"type": "Int32", "name": "address"},
+        		{"type": "UInt32", "name": "symbolnum_pcrel_length_extern_type"}
+        	]
+        },
+        "ScatteredRelocationInfo": {
+        	"fields": [
+        	]
         }
     }
 }
