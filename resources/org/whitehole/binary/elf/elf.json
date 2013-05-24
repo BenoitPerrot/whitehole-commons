@@ -4,7 +4,7 @@
           "url": "https://github.com/BenoitPerrot/whitehole/blob/master/LICENSE" }
     ],
 
-    "types": {
+    "aliases": {
         "Elf32_Addr": "UInt32",
         "Elf32_Half": "UInt16",
         "Elf32_Off": "UInt32",
@@ -65,7 +65,6 @@
             "byteWidth": 2,
             "members": {
                 "UNDEF": {"v": "0x0"},
-                "LORESERVE": {"v": "0xff00"},
                 "LOPROC": {"v": "0xff00"},
                 "HIPROC": {"v": "0xff1f"},
                 "ABS": {"v": "0xfff1"},
@@ -113,7 +112,7 @@
                 { "type": "UInt8", "name": "MAG1", "value": "E"},
                 { "type": "UInt8", "name": "MAG2", "value": "L"},
                 { "type": "UInt8", "name": "MAG3", "value": "F"},
-                { "type": "FileClass", "name": "CLASS" },
+                { "type": "FileClass", "name": "FILE CLASS" },
                 { "type": "DataEncoding", "name": "DATA" },
                 { "type": "Version", "name": "VERSION" },
                 { "type": "UInt8", "name": "PAD0" },
