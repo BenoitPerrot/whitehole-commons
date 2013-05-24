@@ -272,7 +272,7 @@
                 {"type": "DataDirectory", "name": "reserved"}
             ]
         },
-        "ImageFile": {
+        "PEHeader": {
             "fields": [
             	{"offset": "0x3c", "type": "UInt32", "name": "signature_offset", "keep": false},
                 {"offset": "this.signature_offset", "type": "UInt32", "name": "signature", "value": "0x50450000", "keep": false},
@@ -280,6 +280,22 @@
             	{"type": "OptionalHeader", "name": "optional_header" },
             	{"type": "SectionHeader", "count": "this.coff_header.section_count", "name": "section headers"}
             ]
+        },
+        
+        "ExportDirectoryTable": {
+        	"fields": [
+                {"offset": 0, "type": "UInt32", "name": "export flags", "value": 0},
+                {"offset": 4, "type": "UInt32", "name": "time date stamp"},
+                {"offset": 8, "type": "UInt16", "name": "major version"},
+                {"offset": 10, "type": "UInt16", "name": "minor version"},
+                {"offset": 12, "type": "UInt32", "name": "name RVA"},
+                {"offset": 16, "type": "UInt32", "name": "ordinal base"},
+                {"offset": 20, "type": "UInt32", "name": "address table entries"},
+                {"offset": 24, "type": "UInt32", "name": "number of name pointers"},
+                {"offset": 28, "type": "UInt32", "name": "export address table RVA"},
+                {"offset": 32, "type": "UInt32", "name": "name pointer RVA"},
+                {"offset": 36, "type": "UInt32", "name": "ordinal table RVA"}
+        	]
         }
     }
 }
