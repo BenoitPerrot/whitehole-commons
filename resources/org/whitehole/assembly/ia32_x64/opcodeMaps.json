@@ -279,45 +279,45 @@
             { "m": "UD2"},
             null,
             { "m": "NOP", "o": "Ev"},
-            { "m": "FEMMS"},
+            null,
             "amd3DNow",
             [
-                { "m": "MOVUPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "MOVSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "MOVSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "MOVUPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VMOVUPS", "o": ["Vps", "Wps"]},
+                { "prefix": "66", "m": "VMOVUPD", "o": ["Vpd", "Wpd"]},
+                { "prefix": "F3", "m": "VMOVSS", "o": ["Vx", "Hx", "Wss"]},
+                { "prefix": "F2", "m": "VMOVSD", "o": ["Vx", "Hx", "Wsd"]}
             ],
             [
-                { "m": "MOVUPS", "o": ["Wps", "Vps"]},
-                { "prefix": "F2", "m": "MOVSD", "o": ["Wsd", "Vsd"]},
-                { "prefix": "F3", "m": "MOVSS", "o": ["Wss", "Vss"]},
-                { "prefix": "66", "m": "MOVUPD", "o": ["Wpd", "Vpd"]}
+                {                 "m": "VMOVUPS", "o": ["Wps", "Vps"]},
+                { "prefix": "66", "m": "VMOVUPD", "o": ["Wpd", "Vpd"]},
+                { "prefix": "F3", "m": "VMOVSS", "o": ["Wss", "Hx", "Vss"]},
+                { "prefix": "F2", "m": "VMOVSD", "o": ["Wsd", "Hx", "Vsd"]},
             ],
             [
-                { "m": "MOVLPS", "o": ["Vq", "Mq"]},
-                { "prefix": "F2", "m": "MOVDDUP", "o": ["Vq", "Wq"]},
-                { "prefix": "F3", "m": "MOVSLDUP", "o": ["Vq", "Vq"]},
-                { "prefix": "66", "m": "MOVLPD", "o": ["Vq", "Mq"]}
+                {                 "m": "VMOVLPS", "o": ["Vq", "Hq", "Mq"]},
+                { "prefix": "66", "m": "VMOVLPD", "o": ["Vq", "Hq", "Mq"]},
+                { "prefix": "F3", "m": "VMOVSLDUP", "o": ["Vx", "Wx"]},
+                { "prefix": "F2", "m": "VMOVDDUP", "o": ["Vx", "Wx"]}
             ],
             [
-                { "m": "MOVLPS", "o": ["Mq", "Vq"]},
-                { "prefix": "66", "m": "MOVLPD", "o": ["Mq", "Vq"]}
+                {                 "m": "VMOVLPS", "o": ["Mq", "Vq"]},
+                { "prefix": "66", "m": "VMOVLPD", "o": ["Mq", "Vq"]}
             ],
             [
-                { "m": "UNPCKLPS", "o": ["Vps", "Wq"]},
-                { "prefix": "66", "m": "UNPCKLPD", "o": ["Vpd", "Wq"]}
+                {                 "m": "VUNPCKLPS", "o": ["Vx", "Hx", "Wx"]},
+                { "prefix": "66", "m": "VUNPCKLPD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "UNPCKHPS", "o": ["Vps", "Wq"]},
-                { "prefix": "66", "m": "UNPCKHPD", "o": ["Vpd", "Wq"]}
+                {                 "m": "VUNPCKHPS", "o": ["Vx", "Hx", "Wx"]},
+                { "prefix": "66", "m": "VUNPCKHPD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "MOVHPS", "o": ["Vq", "Mq"]},
-                { "prefix": "F3", "m": "MOVSHDUP", "o": ["Vq", "Wq"]},
-                { "prefix": "66", "m": "MOVHPD", "o": ["Vq", "Mq"]}
+                {                 "m": "VMOVHPS", "o": ["Vdq", "Hq", "Mq"]},
+                { "prefix": "66", "m": "VMOVHPD", "o": ["Vdq", "Hq", "Mq"]},
+                { "prefix": "F3", "m": "VMOVSHDUP", "o": ["Vx", "Wx"]}
             ],
             [
-                { "m": "MOVHPS", "o": ["Mq", "Vq"]},
+                {                 "m": "MOVHPS", "o": ["Mq", "Vq"]},
                 { "prefix": "66", "m": "MOVHPD", "o": ["Mq", "Vq"]}
             ],
             "group_16",
@@ -337,42 +337,42 @@
             null,
             null,
             [
-                { "m": "MOVAPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "MOVAPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VMOVAPS", "o": ["Vps", "Wps"]},
+                { "prefix": "66", "m": "VMOVAPD", "o": ["Vpd", "Wpd"]}
             ],
             [
-                { "m": "MOVAPS", "o": ["Wps", "Vps"]},
-                { "prefix": "66", "m": "MOVAPD", "o": ["Wpd", "Vpd"]}
+                {                 "m": "VMOVAPS", "o": ["Wps", "Vps"]},
+                { "prefix": "66", "m": "VMOVAPD", "o": ["Wpd", "Vpd"]}
             ],
             [
-                { "m": "CVTPI2PS", "o": ["Vps", "Qpi"]},
-                { "prefix": "F2", "m": "CVTSI2SD", "o": ["Vsd", "Ey"]},
-                { "prefix": "F3", "m": "CVTSI2SS", "o": ["Vss", "Ey"]},
-                { "prefix": "66", "m": "CVTPI2PD", "o": ["Vpd", "Qpi"]}
+                {                 "m": "CVTPI2PS", "o": ["Vps", "Qpi"]},
+                { "prefix": "66", "m": "CVTPI2PD", "o": ["Vpd", "Qpi"]},
+                { "prefix": "F3", "m": "VCVTSI2SS", "o": ["Vss", "Hss", "Ey"]},
+                { "prefix": "F2", "m": "VCVTSI2SD", "o": ["Vsd", "Hsd", "Ey"]}
             ],
             [
-                { "m": "MOVNTPS", "o": ["Mps", "Vps"]},
-                { "prefix": "66", "m": "MOVNTPD", "o": ["Mpd", "Vpd"]}
+                {                 "m": "VMOVNTPS", "o": ["Mps", "Vps"]},
+                { "prefix": "66", "m": "VMOVNTPD", "o": ["Mpd", "Vpd"]}
             ],
             [
-                { "m": "CVTTPS2PI", "o": ["Ppi", "Wps"]},
-                { "prefix": "F2", "m": "CVTTSD2SI", "o": ["Gy", "Wsd"]},
-                { "prefix": "F3", "m": "CVTTSS2SI", "o": ["Gy", "Wss"]},
-                { "prefix": "66", "m": "CVTTPD2PI", "o": ["Ppi", "Wpd"]}
+                {                 "m": "CVTTPS2PI", "o": ["Ppi", "Wps"]},
+                { "prefix": "66", "m": "CVTTPD2PI", "o": ["Ppi", "Wpd"]},
+                { "prefix": "F3", "m": "VCVTTSS2SI", "o": ["Gy", "Wss"]},
+                { "prefix": "F2", "m": "VCVTTSD2SI", "o": ["Gy", "Wsd"]}
             ],
             [
-                { "m": "CVTPS2PI", "o": ["Ppi", "Wps"]},
-                { "prefix": "F2", "m": "CVTSD2SI", "o": ["Gy", "Wsd"]},
-                { "prefix": "F3", "m": "CVTSS2SI", "o": ["Gy", "Wss"]},
-                { "prefix": "66", "m": "CVTPD2PI", "o": ["Qpi", "Wpd"]}
+                {                 "m": "CVTPS2PI", "o": ["Ppi", "Wps"]},
+                { "prefix": "66", "m": "CVTPD2PI", "o": ["Qpi", "Wpd"]},
+                { "prefix": "F3", "m": "VCVTSS2SI", "o": ["Gy", "Wss"]},
+				{ "prefix": "F2", "m": "VCVTSD2SI", "o": ["Gy", "Wsd"]}                
             ],
             [
-                { "m": "UCOMISS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "UCOMISD", "o": ["Vsd", "Wsd"]}
+                {                 "m": "VUCOMISS", "o": ["Vss", "Wss"]},
+                { "prefix": "66", "m": "VUCOMISD", "o": ["Vsd", "Wsd"]}
             ],
             [
-                { "m": "COMISS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "COMISD", "o": ["Vsd", "Wsd"]}
+                {                 "m": "VCOMISS", "o": ["Vss", "Wss"]},
+                { "prefix": "66", "m": "VCOMISD", "o": ["Vsd", "Wsd"]}
             ],
             { "m": "WRMSR"},
             { "m": "RDTSC"},
@@ -381,7 +381,7 @@
             { "m": "SYSENTER"},
             { "m": "SYSEXIT"},
             null,
-            null,
+            { "m": "GETSEC"},
             "three_byte_0x38",
             null,
             "three_byte_0x3a",
@@ -407,165 +407,165 @@
             { "m": "CMOVLE", "o": ["Gv", "Ev"]},
             { "m": "CMOVG", "o": ["Gv", "Ev"]},
             [
-                { "m": "MOVMSKPS", "o": ["Gd", "Ups"]},
-                { "prefix": "66", "m": "MOVMSKPD", "o": ["Gd", "Upd"]}
+                {                 "m": "VMOVMSKPS", "o": ["Gy", "Ups"]},
+                { "prefix": "66", "m": "VMOVMSKPD", "o": ["Gy", "Upd"]}
             ],
             [
-                { "m": "SQRTPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "SQRTSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "SQRTSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "SQRTPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VSQRTPS", "o": ["Vps", "Wps"]},
+				{ "prefix": "66", "m": "VSQRTPD", "o": ["Vpd", "Wpd"]},
+                { "prefix": "F3", "m": "VSQRTSS", "o": ["Vss", "Hss", "Wss"]},
+                { "prefix": "F2", "m": "VSQRTSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "RSQRTPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F3", "m": "RSQRTSS", "o": ["Vss", "Wss"]}
+                {                 "m": "VRSQRTPS", "o": ["Vps", "Wps"]},
+                { "prefix": "F3", "m": "VRSQRTSS", "o": ["Vss", "Hss", "Wss"]}
             ],
             [
-                { "m": "RCPPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F3", "m": "RCPSS", "o": ["Vss", "Wss"]}
+                {                 "m": "VRCPPS", "o": ["Vps", "Wps"]},
+                { "prefix": "F3", "m": "VRCPSS", "o": ["Vss", "Hss", "Wss"]}
             ],
             [
-                { "m": "ANDPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "ANDPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VANDPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VANDPD", "o": ["Vpd", "Hpd", "Wpd"]}
             ],
             [
-                { "m": "ANDNPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "ANDNPD", "o": ["Vps", "Wps"]}
+                {                 "m": "VANDNPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VANDNPD", "o": ["Vpd", "Hpd", "Wpd"]}
             ],
             [
-                { "m": "ORPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "ORPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VORPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VORPD", "o": ["Vpd", "Hpd", "Wpd"]}
             ],
             [
-                { "m": "XORPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "XORPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VXORPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VXORPD", "o": ["Vpd", "Hpd", "Wpd"]}
             ],
             [
-                { "m": "ADDPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "ADDSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "ADDSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "ADDPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VADDPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VADDPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VADDSS", "o": ["Vss", "Hss", "Wss"]},
+                { "prefix": "F2", "m": "VADDSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "MULPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "MULSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "MULSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "MULPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VMULPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VMULPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VMULSS", "o": ["Vss", "Hss", "Wss"]},
+                { "prefix": "F2", "m": "VMULSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "CVTPS2PD", "o": ["Vpd", "Wps"]},
-                { "prefix": "F2", "m": "CVTSD2SS", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "CVTSS2SD", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "CVTPD2PS", "o": ["Vps", "Wpd"]}
+                {                 "m": "VCVTPS2PD", "o": ["Vpd", "Wps"]},
+                { "prefix": "66", "m": "VCVTPD2PS", "o": ["Vps", "Wpd"]},
+                { "prefix": "F3", "m": "VCVTSS2SD", "o": ["Vsd", "Hx", "Wss"]},
+                { "prefix": "F2", "m": "VCVTSD2SS", "o": ["Vss", "Hx", "Wsd"]}
             ],
             [
-                { "m": "CVTDQ2PS", "o": ["Vps", "Wdq"]},
-                { "prefix": "F3", "m": "CVTTPS2DQ", "o": ["Vdq", "Wps"]},
-                { "prefix": "66", "m": "CVTPS2DQ", "o": ["Vdq", "Wps"]}
+                {                 "m": "VCVTDQ2PS", "o": ["Vps", "Wdq"]},
+                { "prefix": "66", "m": "VCVTPS2DQ", "o": ["Vdq", "Wps"]},
+                { "prefix": "F3", "m": "VCVTTPS2DQ", "o": ["Vdq", "Wps"]}
             ],
             [
-                { "m": "SUBPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "SUBSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "SUBSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "SUBPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VSUBPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VSUBPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VSUBSS", "o": ["Vss", "Hss", "Wss"]},
+				{ "prefix": "F2", "m": "VSUBSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "MINPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "MINSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "MINSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "MINPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VMINPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VMINPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VMINSS", "o": ["Vss", "Hss", "Wss"]},
+                { "prefix": "F2", "m": "VMINSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "DIVPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "DIVSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "DIVSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "DIVPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VDIVPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VDIVPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VDIVSS", "o": ["Vss", "Hss", "Wss"]},
+                { "prefix": "F2", "m": "VDIVSD", "o": ["Vsd", "Hsd", "Wsd"]}
             ],
             [
-                { "m": "MAXPS", "o": ["Vps", "Wps"]},
-                { "prefix": "F2", "m": "MAXSD", "o": ["Vsd", "Wsd"]},
-                { "prefix": "F3", "m": "MAXSS", "o": ["Vss", "Wss"]},
-                { "prefix": "66", "m": "MAXPD", "o": ["Vpd", "Wpd"]}
+                {                 "m": "VMAXPS", "o": ["Vps", "Hps", "Wps"]},
+                { "prefix": "66", "m": "VMAXPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F3", "m": "VMAXSS", "o": ["Vss", "Hss", "Wss"]},
+				{ "prefix": "F2", "m": "VMAXSD", "o": ["Vsd", "Hsd", "Wsd"]}                
             ],
             [
-                { "m": "PUNPCKLBW", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKLBW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PUNPCKLBW", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKLBW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PUNPCKLWD", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKLWD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PUNPCKLWD", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKLWD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PUNPCKLDQ", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKLDQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PUNPCKLDQ", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKLDQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PACKSSWB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PACKSSWB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PACKSSWB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPACKSSWB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PCMPGTB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPGTB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPGTB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPGTB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PCMPGTW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPGTW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPGTW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPGTW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PCMPGTD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPGTD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPGTD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPGTD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PACKUSWB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PACKUSWB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PACKUSWB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPACKUSWB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PUNPCKHBW", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKHBW", "o": ["Pdq", "Qdq"]}
+                {                 "m": "PUNPCKHBW", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKHBW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PUNPCKHWD", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKHWD", "o": ["Pdq", "Qdq"]}
+                {                 "m": "PUNPCKHWD", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKHWD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PUNPCKHDQ", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PUNPCKHDQ", "o": ["Pdq", "Qdq"]}
+                {                 "m": "PUNPCKHDQ", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPUNPCKHDQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PACKSSDW", "o": ["Pq", "Qd"]},
-                { "prefix": "66", "m": "PACKSSDW", "o": ["Pdq", "Qdq"]}
+                {                 "m": "PACKSSDW", "o": ["Pq", "Qd"]},
+                { "prefix": "66", "m": "VPACKSSDW", "o": ["Vx", "Hx", "Wx"]}
             ],
-            { "prefix": "66", "m": "PUNPCKLQDQ", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PUNPCKHQDQ", "o": ["Vdq", "Wdq"]},
+            { "prefix": "66", "m": "VPUNPCKLQDQ", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPUNPCKHQDQ", "o": ["Vx", "Hx", "Wx"]},
             [
-                { "m": "MOVD", "o": ["Pd", "Ey"]},
-                { "prefix": "66", "m": "MOVD", "o": ["Vdq", "Ey"]}
-            ],
-            [
-                { "m": "MOVQ", "o": ["Pq", "Qq"]},
-                { "prefix": "F3", "m": "MOVDQU", "o": ["Vdq", "Wdq"]},
-                { "prefix": "66", "m": "MOVQA", "o": ["Vdq", "Wdq"]}
+                {                 "m": "MOVD", "o": ["Pd", "Ey"]},
+                { "prefix": "66", "m": "VMOVD", "o": ["Vy", "Ey"]}
             ],
             [
-                { "m": "PSHUFW", "o": ["Pq", "Qq", "Ib"]},
-                { "prefix": "F2", "m": "PSHUFLW", "o": ["Vdq", "Wdq", "Ib"]},
-                { "prefix": "F3", "m": "PSHUFHW", "o": ["Vdq", "Wdq", "Ib"]},
-                { "prefix": "66", "m": "PSHUFD", "o": ["Vdq", "Wdq", "Ib"]}
+                {                 "m": "MOVQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VMOVDQA", "o": ["Vx", "Wx"]},
+                { "prefix": "F3", "m": "VMOVDQU", "o": ["Vx", "Wx"]}
+            ],
+            [
+                {                 "m": "PSHUFW", "o": ["Pq", "Qq", "Ib"]},
+                { "prefix": "66", "m": "VPSHUFD", "o": ["Vx", "Wx", "Ib"]},
+                { "prefix": "F3", "m": "VPSHUFHW", "o": ["Vx", "Wx", "Ib"]},
+                { "prefix": "F2", "m": "VPSHUFLW", "o": ["Vx", "Wx", "Ib"]}
             ],
             "group_12",
             "group_13",
             "group_14",
             [
-                { "m": "PCMPEQB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPEQB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPEQB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPEQB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PCMPEQW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPEQW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPEQW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPEQW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PCMPEQD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PCMPEQD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PCMPEQD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPCMPEQD", "o": ["Vx", "Hx", "Wx"]}
             ],
             { "m": "EMMS"},
             { "m": "VMREAD", "o": ["Ey", "Gy"]},
@@ -573,22 +573,22 @@
             null,
             null,
             [
-                { "prefix": "F2", "m": "HADDPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "HADDPD", "o": ["Vpd", "Wpd"]}
+                { "prefix": "66", "m": "VHADDPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F2", "m": "VHADDPS", "o": ["Vps", "Hps", "Wps"]}
             ],
             [
-                { "prefix": "F2", "m": "HSUBPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "HSUBPD", "o": ["Vpd", "Wpd"]}
+                { "prefix": "66", "m": "VHSUBPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F2", "m": "VHSUBPS", "o": ["Vps", "Hps", "Wps"]}
             ],
             [
-                { "m": "MOVD", "o": ["Ey", "Pd"]},
-                { "prefix": "F3", "m": "MOVQ", "o": ["Vq", "Wq"]},
-                { "prefix": "66", "m": "MOVD", "o": ["Ey", "Vdq"]}
+                {                 "m": "MOVD", "o": ["Ey", "Pd"]},
+                { "prefix": "66", "m": "VMOVD", "o": ["Ey", "Vy"]},
+                { "prefix": "F3", "m": "VMOVQ", "o": ["Vq", "Wq"]}
             ],
             [
-                { "m": "MOVQ", "o": ["Qq", "Pq"]},
-                { "prefix": "F3", "m": "MOVDQU", "o": ["Wdq", "Vdq"]},
-                { "prefix": "66", "m": "MOVDQA", "o": ["Wdq", "Vdq"]}
+                {                 "m": "MOVQ", "o": ["Qq", "Pq"]},
+                { "prefix": "66", "m": "VMOVDQA", "o": ["Wx", "Vx"]},
+                { "prefix": "F3", "m": "VMOVDQU", "o": ["Wx", "Vx"]}
             ],
             { "precond": "f64", "m": "JO", "o": "Jz"},
             { "precond": "f64", "m": "JNO", "o": "Jz"},
@@ -646,34 +646,43 @@
             { "m": "LGS", "o": ["Gv", "Mp"]},
             { "m": "MOVZX", "o": ["Gv", "Eb"]},
             { "m": "MOVZX", "o": ["Gv", "Ew"]},
-            { "m": "UD"},
+            [
+            	{ "m": "JMPE"},
+            	{ "prefix": "F3", "m": "POPCNT", "o": ["Gv", "Ev"]},
+            ],
             "group_10",
             "group_8",
             { "m": "BTC", "o": ["Ev", "Gv"]},
-            { "m": "BSF", "o": ["Gv", "Ev"]},
-            { "m": "BSR", "o": ["Gv", "Ev"]},
+            [
+	            {                 "m": "BSF", "o": ["Gv", "Ev"]},
+	            { "prefix": "F3", "m": "TZNCT", "o": ["Gv", "Ev"]}
+	        ],
+	        [
+            	{                 "m": "BSR", "o": ["Gv", "Ev"]},
+            	{ "prefix": "F3", "m": "LZNCT", "o": ["Gv", "Ev"]}
+            ],
             { "m": "MOVSX", "o": ["Gv", "Eb"]},
             { "m": "MOVSX", "o": ["Gv", "Ew"]},
             { "m": "XADD", "o": ["Eb", "Gb"]},
             { "m": "XADD", "o": ["Ev", "Gv"]},
             [
-                { "m": "CMPPS", "o": ["Vps", "Wps", "Ib"]},
-                { "prefix": "F2", "m": "CMPSD", "o": ["Vsd", "Wsd", "Ib"]},
-                { "prefix": "F3", "m": "CMPSS", "o": ["Vss", "Wss", "Ib"]},
-                { "prefix": "66", "m": "CMPPD", "o": ["Vpd", "Wpd", "Ib"]}
+                {                 "m": "VCMPPS", "o": ["Vps", "Wps", "Ib"]},
+                { "prefix": "66", "m": "VCMPPD", "o": ["Vpd", "Wpd", "Ib"]},
+                { "prefix": "F3", "m": "VCMPSS", "o": ["Vss", "Wss", "Ib"]},
+                { "prefix": "F2", "m": "VCMPSD", "o": ["Vsd", "Wsd", "Ib"]}
             ],
             { "m": "MOVNTI", "o": ["My", "Gy"]},
             [
-                { "m": "PINSRW", "o": ["Pq", "Ew", "Ib"]},
-                { "prefix": "66", "m": "PINSRW", "o": ["Vdq", "Ew", "Ib"]}
+                { "m": "PINSRW", "o": ["Pq", "Ry_Mw", "Ib"]},
+                { "prefix": "66", "m": "PINSRW", "o": ["Vdq", "Ry_Mw", "Ib"]}
             ],
             [
                 { "m": "PEXTRW", "o": ["Gd", "Nq", "Ib"]},
                 { "prefix": "66", "m": "PEXTRW", "o": ["Gd", "Udq", "Ib"]}
             ],
             [
-                { "m": "SHUFPS", "o": ["Vps", "Wps", "Ib"]},
-                { "prefix": "66", "m": "SHUFPD", "o": ["Vpd", "Wpd", "Ib"]}
+                { "m": "SHUFPS", "o": ["Vps", "Hps", "Wps", "Ib"]},
+                { "prefix": "66", "m": "SHUFPD", "o": ["Vpd", "Hpd", "Wpd", "Ib"]}
             ],
             "group_9",
             { "m": "BSWAP", "o": "rAXr8"},
@@ -685,312 +694,323 @@
             { "m": "BSWAP", "o": "rSIr14"},
             { "m": "BSWAP", "o": "rDIr15"},
             [
-                { "prefix": "F2", "m": "ADDSUBPS", "o": ["Vps", "Wps"]},
-                { "prefix": "66", "m": "ADDSUBPD", "o": ["Vpd", "Wpd"]}
+                { "prefix": "66", "m": "VADDSUBPD", "o": ["Vpd", "Hpd", "Wpd"]},
+                { "prefix": "F2", "m": "VADDSUBPS", "o": ["Vps", "Hps", "Wps"]}
             ],
             [
-                { "m": "PSRLW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSRLW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSRLW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSRLW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSRLD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSRLD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSRLD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSRLD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSRLQ", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSRLQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSRLQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSRLQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDQ", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMULLW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMULLW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMULLW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "PMULLW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "prefix": "F2", "m": "MOVDQ2Q", "o": ["Pq", "Uq"]},
+                { "prefix": "66", "m": "VMOVQ", "o": ["Wq", "Vq"]},
                 { "prefix": "F3", "m": "MOVQ2DQ", "o": ["Vdq", "Nq"]},
-                { "prefix": "66", "m": "MOVQ", "o": ["Wq", "Vq"]}
+                { "prefix": "F2", "m": "MOVDQ2Q", "o": ["Pq", "Uq"]}
             ],
             [
-                { "m": "PMOVMSKB", "o": ["Gd", "Nq"]},
-                { "prefix": "66", "m": "PMOVMSKB", "o": ["Gd", "Udq"]}
+                {                 "m": "PMOVMSKB", "o": ["Gd", "Nq"]},
+                { "prefix": "66", "m": "PMOVMSKB", "o": ["Gd", "Ux"]}
             ],
             [
-                { "m": "PSUBUSB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBUSB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBUSB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBUSB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSUBUSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBUSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBUSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBUSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMINUB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMINUB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMINUB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMINUB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PAND", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PAND", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PAND", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPAND", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDUSB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDUSB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDUSB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDUSB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDUSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDUSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDUSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDUSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMAXUB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMAXUB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMAXUB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMAXUB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PANDN", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PANDN", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PANDN", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPANDN", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PAVGB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PAVGB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PAVGB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPAVGB", "o": ["Vx", "Wx"]}
             ],
             [
-                { "m": "PSRAW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSRAW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSRAW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSRAW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSRAD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSRAD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSRAD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSRAD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PAVGW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PAVGW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PAVGW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPAVGW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMULHUW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMULHUW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMULHUW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMULHUW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMULHW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMULHW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMULHW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMULHW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "prefix": "F2", "m": "CVTPD2DQ", "o": ["Vdq", "Wpd"]},
-                { "prefix": "F3", "m": "CVTDQ2PD", "o": ["Vpd", "Wdq"]},
-                { "prefix": "66", "m": "CVTTPD2DQ", "o": ["Vdq", "Wpd"]}
+                { "prefix": "66", "m": "VCVTTPD2DQ", "o": ["Vx", "Wpd"]},
+                { "prefix": "F3", "m": "VCVTDQ2PD", "o": ["Vx", "Wdq"]},
+                { "prefix": "F2", "m": "VCVTPD2DQ", "o": ["Vx", "Wpd"]}
             ],
             [
-                { "m": "MOVNTQ", "o": ["Mq", "Pq"]},
-                { "prefix": "66", "m": "MOVNTDQ", "o": ["Mdq", "Vdq"]}
+                {                 "m": "MOVNTQ", "o": ["Mq", "Pq"]},
+                { "prefix": "66", "m": "MOVNTDQ", "o": ["Mx", "Vx"]}
             ],
             [
-                { "m": "PSUBSB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBSB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBSB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBSB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSUBSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMINSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMINSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMINSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMINSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "POR", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "POR", "o": ["Vdq", "Wdq"]}
+                {                 "m": "POR", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPOR", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDSB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDSB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDSB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDSB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMAXSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMAXSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMAXSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMAXSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PXOR", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PXOR", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PXOR", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPXOR", "o": ["Vx", "Hx", "Wx"]}
             ],
-            { "prefix": "F2", "m": "LDDQU", "o": ["Vdq", "Mdq"]},
+            { "prefix": "F2", "m": "VLDDQU", "o": ["Vx", "Mx"]},
             [
-                { "m": "PSLLW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSLLW", "o": ["Vdq", "Wdq"]}
-            ],
-            [
-                { "m": "PSLLD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSLLD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSLLW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSLLW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSLLQ", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSLLQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSLLD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSLLD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMULUDQ", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMULUDQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSLLQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSLLQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMADDWD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMADDWD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMULUDQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMULUDQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSADBW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSADBW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMADDWD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMADDWD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "MASKMOVQ", "o": ["Pq", "Nq"]},
-                { "prefix": "66", "m": "MASKMOVQ", "o": ["Vdq", "Udq"]}
+                {                 "m": "PSADBW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSADBW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSUBB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "MASKMOVQ", "o": ["Pq", "Nq"]},
+                { "prefix": "66", "m": "VMASKMOVQ", "o": ["Vdq", "Udq"]}
             ],
             [
-                { "m": "PSUBW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSUBD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSUBQ", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSUBQ", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSUBQ", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSUBQ", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PADDD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PADDD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PADDW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDW", "o": ["Vx", "Hx", "Wx"]}
+            ],
+            [
+                {                 "m": "PADDD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPADDD", "o": ["Vx", "Hx", "Wx"]}
             ],
             null
         ],
         "three_byte_0x38": [
             [
-                { "m": "PSHUFB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSHUFB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSHUFB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSHUFB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHADDW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHADDW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHADDW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHADDW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHADDD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHADDD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHADDD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHADDD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHADDSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHADDSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHADDSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHADDSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMADDUBSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMADDUBSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMADDUBSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMADDUBSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHSUBW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHSUBW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHSUBW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHSUBW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHSUBD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHSUBD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHSUBD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHSUBD", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PHSUBSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PHSUBSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PHSUBSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPHSUBSW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSIGNB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSIGNB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSIGNB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSIGNB", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSIGNW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSIGNW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSIGNW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSIGNW", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PSIGND", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PSIGND", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PSIGND", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPSIGND", "o": ["Vx", "Hx", "Wx"]}
             ],
             [
-                { "m": "PMULHRSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PMULHRSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PMULHRSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPMULHRSW", "o": ["Vx", "Hx", "Wx"]}
             ],
-            null,
-            null,
-            null,
-            null,
+            { "precond": "v", "prefix": "66", "m": "VPERMILPS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VPERMILPD", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VTESTPS", "o": ["Vx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VTESTPD", "o": ["Vx", "Wx"]},
             { "prefix": "66", "m": "PBLENDVB", "o": ["Vdq", "Wdq"]},
             null,
             null,
-            null,
+            { "precond": "v", "prefix": "66", "m": "VCVTPH2PS", "o": ["Vx", "Wx", "Ib"]},
             { "prefix": "66", "m": "BLENDVPS", "o": ["Vdq", "Wdq"]},
             { "prefix": "66", "m": "BLENDVPD", "o": ["Vdq", "Wdq"]},
-            null,
-            { "prefix": "66", "m": "PTEST", "o": ["Vdq", "Wdq"]},
-            null,
-            null,
-            null,
+            { "precond": "v", "prefix": "66", "m": "VPERMPS", "o": ["Vqq", "Hqq", "Wqq"]},
+            { "prefix": "66", "m": "VPTEST", "o": ["Vx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTSS", "o": ["Vx", "Wd"]},
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTSD", "o": ["Vqq", "Wqq"]},
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTF128", "o": ["Vqq", "Mdq"]},
             null,
             [
-                { "m": "PABSB", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PABSB", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PABSB", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPABSB", "o": ["Vx", "Wx"]}
             ],
             [
-                { "m": "PABSW", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PABSW", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PABSW", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPABSW", "o": ["Vx", "Wx"]}
             ],
             [
-                { "m": "PABSD", "o": ["Pq", "Qq"]},
-                { "prefix": "66", "m": "PABSD", "o": ["Vdq", "Wdq"]}
+                {                 "m": "PABSD", "o": ["Pq", "Qq"]},
+                { "prefix": "66", "m": "VPABSD", "o": ["Vx", "Wx"]}
             ],
             null,
-            { "prefix": "66", "m": "PMOVSXBW", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVSXBD", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVSXBQ", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVSXWD", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVSXWQ", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVSXDQ", "o": ["Vdq", "Udq_Mq"]},
+            { "prefix": "66", "m": "VPMOVSXBW", "o": ["Vdq", "Ux_Mq"]},
+            { "prefix": "66", "m": "VPMOVSXBD", "o": ["Vdq", "Ux_Md"]},
+            { "prefix": "66", "m": "VPMOVSXBQ", "o": ["Vdq", "Ux_Mw"]},
+            { "prefix": "66", "m": "VPMOVSXWD", "o": ["Vdq", "Ux_Mq"]},
+            { "prefix": "66", "m": "VPMOVSXWQ", "o": ["Vx", "Ux_Md"]},
+            { "prefix": "66", "m": "VPMOVSXDQ", "o": ["Vx", "Ux_Mq"]},
             null,
             null,
-            { "m": "PMULDQ", "o": ["Vdq", "Wdq"]},
-            { "m": "PCMPEQQ", "o": ["Vdq", "Wdq"]},
-            { "m": "MOVNTDQA", "o": ["Vdq", "Mdq"]},
-            { "m": "PACKUSDW", "o": ["Vdq", "Wdq"]},
+            { "prefix": "66", "m": "VPMULDQ", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPCMPEQQ", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VMOVNTDQA", "o": ["Vx", "Mx"]},
+            { "prefix": "66", "m": "VPACKUSDW", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VMASKMOVPS", "o": ["Vx", "Hx", "Mx"]},
+            { "precond": "v", "prefix": "66", "m": "VMASKMOVPD", "o": ["Vx", "Hx", "Mx"]},
+            { "precond": "v", "prefix": "66", "m": "VMASKMOVPS", "o": ["Mx", "Hx", "Vx"]},
+            { "precond": "v", "prefix": "66", "m": "VMASKMOVPD", "o": ["Mx", "Hx", "Vx"]},
+            { "prefix": "66", "m": "VPMOVZXBW", "o": ["Vx", "Ux_Mq"]},
+            { "prefix": "66", "m": "VPMOVZXBD", "o": ["Vx", "Ux_Md"]},
+            { "prefix": "66", "m": "VPMOVZXBQ", "o": ["Vx", "Ux_Mw"]},
+            { "prefix": "66", "m": "VPMOVZXWD", "o": ["Vx", "Ux_Mq"]},
+            { "prefix": "66", "m": "VPMOVZXWQ", "o": ["Vx", "Ux_Md"]},
+            { "prefix": "66", "m": "VPMOVZXDQ", "o": ["Vx", "Ux_Mq"]},
+            { "precond": "v", "prefix": "66", "m": "VPERMD", "o": ["Vqq", "Hqq", "Wqq"]},
+            { "prefix": "66", "m": "VPCMPGTQ", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMINSB", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMINSD", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMINUW", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMINUD", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMAXSB", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMAXSD", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMAXUW", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMAXUD", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPMULLD", "o": ["Vx", "Hx", "Wx"]},
+            { "prefix": "66", "m": "VPHMINPOSUW", "o": ["Vdq", "Wdq"]},
             null,
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VPSRLVD", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VPSRAVD", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VPSLLVD", "o": ["Vx", "Hx", "Wx"]},
+            
             null,
-            { "prefix": "66", "m": "PMOVZXBW", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVZXBD", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVZXBQ", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVZXWD", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVZXWQ", "o": ["Vdq", "Udq_Mq"]},
-            { "prefix": "66", "m": "PMOVZXDQ", "o": ["Vdq", "Udq_Mq"]},
             null,
-            { "prefix": "66", "m": "PCMPGTQ", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMINSB", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMINSD", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMINUW", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMINUD", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMAXSB", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMAXSD", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMAXUW", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMAXUD", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PMULLD", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "PHMINPOSUW", "o": ["Vdq", "Wdq"]},
             null,
             null,
             null,
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -999,11 +1019,17 @@
             null,
             null,
             null,
+                        
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTD", "o": ["Vx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTQ", "o": ["Vx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VBROADCASTI128", "o": ["Vqq", "Mqq"]},
             null,
             null,
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1012,6 +1038,7 @@
             null,
             null,
             null,
+                        
             null,
             null,
             null,
@@ -1020,6 +1047,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1028,52 +1057,93 @@
             null,
             null,
             null,
+            
+            { "precond": "v", "prefix": "66", "m": "VPBROADCASTB", "o": ["Vx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VPBROADCASTW", "o": ["Vx", "Wx"]},
             null,
             null,
             null,
             null,
             null,
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            
+            
             { "prefix": "66", "m": "INVEPT", "o": ["Gy", "Mdq"]},
             { "prefix": "66", "m": "INVVPID", "o": ["Gy", "Mdq"]},
+            { "prefix": "66", "m": "INVPCID", "o": ["Gy", "Mdq"]},
             null,
             null,
             null,
             null,
             null,
+            
             null,
             null,
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VPMASKMOVD", "o": ["Vx", "Hx", "Mx"]},
             null,
+            { "precond": "v", "prefix": "66", "m": "VPMASKMOVD", "o": ["Mx", "Vx", "Hx"]},
             null,
+            
+            
+            { "precond": "v", "prefix": "66", "m": "VGATHERDD", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VGATHERQD", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VGATHERDPS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VGATHERQPS", "o": ["Vx", "Hx", "Wx"]},
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VFMADDSUB132PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUBADD132PS", "o": ["Vx", "Hx", "Wx"]},
+            
+            { "precond": "v", "prefix": "66", "m": "VFMADD132PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMADD132SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB132PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB132SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD132PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD132SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB132PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB132SS", "o": ["Vx", "Hx", "Wx"]},
+            
+            
             null,
             null,
             null,
             null,
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VFMADDSUB213PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUBADD213PS", "o": ["Vx", "Hx", "Wx"]},
+            
+            { "precond": "v", "prefix": "66", "m": "VFMADD213PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMADD213SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB213PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB213SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD213PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD213SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB213PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB213SS", "o": ["Vx", "Hx", "Wx"]},
+            
+            
             null,
             null,
             null,
             null,
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VFMADDSUB231", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUBADD231", "o": ["Vx", "Hx", "Wx"]},
+            
+            { "precond": "v", "prefix": "66", "m": "VFMADD231PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMADD231SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB231PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFMSUB231SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD231PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMADD231SS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB231PS", "o": ["Vx", "Hx", "Wx"]},
+            { "precond": "v", "prefix": "66", "m": "VFNMSUB231SS", "o": ["Vx", "Hx", "Wx"]},
+            
+            
             null,
             null,
             null,
@@ -1082,6 +1152,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1090,6 +1161,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1098,9 +1171,17 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
+            { "prefix": "66", "m": "VAESIMC", "o": ["Vdq", "Wdq"]},
+            { "prefix": "66", "m": "VAESENC", "o": ["Vdq", "Hdq", "Wdq"]},
+            { "prefix": "66", "m": "VAESENCLAST", "o": ["Vdq", "Hdq", "Wdq"]},
+            { "prefix": "66", "m": "VAESDEC", "o": ["Vdq", "Hdq", "Wdq"]},
+            { "prefix": "66", "m": "VAESDECLAST", "o": ["Vdq", "Hdq", "Wdq"]},
+            
+            
             null,
             null,
             null,
@@ -1109,6 +1190,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1117,66 +1199,40 @@
             null,
             null,
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            { "prefix": "66", "m": "AESIMC", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "AESENC", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "AESENCLAST", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "AESDEC", "o": ["Vdq", "Wdq"]},
-            { "prefix": "66", "m": "AESDECLAST", "o": ["Vdq", "Wdq"]},
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            
+            
             [
-                { "m": "MOVBE", "o": ["Gy", "My"]},
-                { "prefix": "F2", "m": "CRC32", "o": ["Gd", "Eb"]},
+                {                         "m": "MOVBE", "o": ["Gy", "My"]},
+                { "prefix": "66",         "m": "MOVBE", "o": ["Gw", "Mw"]},
+                { "prefix": "F2",         "m": "CRC32", "o": ["Gd", "Eb"]},
                 { "prefix": ["66", "F2"], "m": "CRC32", "o": ["Gd", "Eb"]},
-                { "prefix": "66", "m": "MOVBE", "o": ["Gw", "Mw"]}
             ],
             [
-                { "m": "MOVBE", "o": ["My", "Gy"]},
-                { "prefix": "F2", "m": "CRC32", "o": ["Gd", "Ey"]},
+                {                         "m": "MOVBE", "o": ["My", "Gy"]},
+                { "prefix": "F2",         "m": "CRC32", "o": ["Gd", "Ey"]},
                 { "prefix": ["66", "F2"], "m": "CRC32", "o": ["Gd", "Ew"]},
-                { "prefix": "66", "m": "MOVBE", "o": ["Mw", "Gw"]}
+                { "prefix": "66",         "m": "MOVBE", "o": ["Mw", "Gw"]}
             ],
+            { "precond": "v", "m": "ANDN", "o": ["Gy", "By", "Ey"]},
+            "group_17",
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            [
+            	{ "precond": "v", "m": "BZHI", "o": ["Gy", "By", "Ey"] },
+            	{ "precond": "v", "prefix": "F3", "m": "PEXT", "o": ["Gy", "By", "Ey"] },
+            	{ "precond": "v", "prefix": "F2", "m": "PEDP", "o": ["Gy", "By", "Ey"] }
+            ],
+            [
+            	{ "prefix": "66", "m": "ADCX", "o": ["Gy", "Ey"] },
+            	{ "prefix": "F3", "m": "ADOX", "o": ["Gy", "Ey"] },
+            	{ "precond": "v", "prefix": "F3", "m": "MULX", "o": ["By", "Gy", "rDX", "Ey"] }
+            ],
+            [
+                { "precond": "v",                 "m": "BEXTR", "o": ["Gy", "Ey", "By"] },
+            	{ "precond": "v", "prefix": "66", "m": "SHLX", "o": ["Gy", "Ey", "By"] },
+            	{ "precond": "v", "prefix": "F3", "m": "SARX", "o": ["Gy", "Ey", "By"] },
+            	{ "precond": "v", "prefix": "F2", "m": "SHRX", "o": ["Gy", "Ey", "By"] }
+            ],
+            
             null,
             null,
             null,
@@ -1187,46 +1243,56 @@
             null
         ],
         "three_byte_0x3a": [
+            { "precond": "v", "prefix": "66", "m": "VPERMQ", "o": ["Vqq", "Wqq", "Ib"] },
+            { "precond": "v", "prefix": "66", "m": "VPERMPD", "o": ["Vqq", "Wqq", "Ib"] },
+            { "precond": "v", "prefix": "66", "m": "VPBLENDD", "o": ["Vx", "Hx", "Wx", "Ib"] },
             null,
+            { "precond": "v", "prefix": "66", "m": "VPERMILPS", "o": ["Vx", "Wx", "Ib"] },
+            { "precond": "v", "prefix": "66", "m": "VPERMILPD", "o": ["Vx", "Wx", "Ib"] },
+            { "precond": "v", "prefix": "66", "m": "VPERM2F128", "o": ["Vqq", "Hqq", "Wqq", "Ib"] },
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            { "prefix": "66", "m": "ROUNDPS", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "ROUNDPD", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "ROUNDSS", "o": ["Vss", "Wss", "Ib"]},
-            { "prefix": "66", "m": "ROUNDSD", "o": ["Vss", "Wss", "Ib"]},
-            { "prefix": "66", "m": "BLENDPS", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "BLENDPD", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "PBLENDW", "o": ["Vdq", "Wdq", "Ib"]},
+            
+            { "prefix": "66", "m": "VROUNDPS", "o": ["Vx", "Wx", "Ib"]},
+            { "prefix": "66", "m": "VROUNDPD", "o": ["Vx", "Wx", "Ib"]},
+            { "prefix": "66", "m": "VROUNDSS", "o": ["Vss", "Wss", "Ib"]},
+            { "prefix": "66", "m": "VROUNDSD", "o": ["Vsd", "Wsd", "Ib"]},
+            { "prefix": "66", "m": "VBLENDPS", "o": ["Vx", "Hx", "Wx", "Ib"]},
+            { "prefix": "66", "m": "VBLENDPD", "o": ["Vx", "Hx", "Wx", "Ib"]},
+            { "prefix": "66", "m": "VPBLENDW", "o": ["Vx", "Hx", "Wx", "Ib"]},
             [
                 { "m": "PALIGNR", "o": ["Pq", "Qq", "Ib"]},
-                { "prefix": "66", "m": "PALIGNR", "o": ["Vdq", "Wdq", "Ib"]}
+                { "prefix": "66", "m": "PALIGNR", "o": ["Vx", "Hx", "Wx", "Ib"]}
             ],
+            
+            
             null,
             null,
             null,
             null,
-            { "prefix": "66", "m": "PEXTRB", "o": ["Rd_Mb", "Vdq", "Ib"]},
-            { "prefix": "66", "m": "PEXTRW", "o": ["Rd_Mw", "Vdq", "Ib"]},
-            { "prefix": "66", "m": "PEXTRD_Q", "o": ["Ey", "Vdq", "Ib"]},
-            { "prefix": "66", "m": "EXTRACTPS", "o": ["Ed", "Vdq", "Ib"]},
+            { "prefix": "66", "m": "VPEXTRB", "o": ["Rd_Mb", "Vdq", "Ib"]},
+            { "prefix": "66", "m": "VPEXTRW", "o": ["Rd_Mw", "Vdq", "Ib"]},
+            { "prefix": "66", "m": "VPEXTRD_Q", "o": ["Ey", "Vdq", "Ib"]},
+            { "prefix": "66", "m": "VEXTRACTPS", "o": ["Ed", "Vdq", "Ib"]},
+            
+            { "precond": "v", "prefix": "66", "m": "VINSERTF128", "o": ["Vqq", "Hqq", "Wqq", "Ib"]},
+            { "precond": "v", "prefix": "66", "m": "VEXTRACTF128", "o": ["Wdq", "Vqq", "Ib"]},
             null,
             null,
             null,
+            { "precond": "v", "prefix": "66", "m": "VCVTPS2PH", "o": ["Wx", "Vx", "Ib"]},
             null,
             null,
+            
+            
+            { "prefix": "66", "m": "VPINSRB", "o": ["Vdq", "Hdq", "Ry_Mb", "Ib"]},
+            { "prefix": "66", "m": "VINSERTPS", "o": ["Vdq", "Hdq", "Udq_Md", "Ib"]},
+            { "prefix": "66", "m": "VPINSRD_Q", "o": ["Vdq", "Hdq", "Ey", "Ib"]},
             null,
             null,
             null,
-            { "prefix": "66", "m": "PINSRB", "o": ["Vdq", "Ry_Mb", "Ib"]},
-            { "prefix": "66", "m": "INSERTPS", "o": ["Vdq", "Udq_Md", "Ib"]},
-            { "prefix": "66", "m": "PINSRD_Q", "o": ["Vdq", "Ey", "Ib"]},
             null,
             null,
+            
             null,
             null,
             null,
@@ -1235,6 +1301,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1243,6 +1311,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1251,18 +1320,27 @@
             null,
             null,
             null,
+            
+            
+            { "prefix": "66", "m": "VDPPS", "o": ["Vx", "Hx", "Wx", "Ib"]},
+            { "prefix": "66", "m": "VDPPD", "o": ["Vdq", "Hdq", "Wdq", "Ib"]},
+            { "prefix": "66", "m": "VMPSADBW", "o": ["Vx", "Hx", "Wx", "Ib"]},
             null,
+            { "prefix": "66", "m": "VPCLMULQDQ", "o": ["Vdq", "Hdq", "Wdq", "Ib"]},
             null,
+            { "precond": "v", "prefix": "66", "m": "VPERM2I128", "o": ["Vqq", "Hqq", "Wqq", "Ib"]},
             null,
-            { "prefix": "66", "m": "DPPS", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "DPPD", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "MPSADW", "o": ["Vdq", "Wdq", "Ib"]},
+            
             null,
-            { "prefix": "66", "m": "PCLMULQDQ", "o": ["Vdq", "Wdq", "Ib"]},
             null,
+            { "precond": "v", "prefix": "66", "m": "VBLENDVPS", "o": ["Vx", "Hx", "Wx", "Lx"]},
+            { "precond": "v", "prefix": "66", "m": "VBLENDVPD", "o": ["Vx", "Hx", "Wx", "Lx"]},
+            { "precond": "v", "prefix": "66", "m": "VBLENDVB", "o": ["Vx", "Hx", "Wx", "Lx"]},
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1271,6 +1349,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1279,22 +1358,27 @@
             null,
             null,
             null,
+            
+            
+            { "prefix": "66", "m": "VPCMPESTRM", "o": ["Vdq", "Wdq", "Ib"]},
+            { "prefix": "66", "m": "VPCMPESTRI", "o": ["Vdq", "Wdq", "Ib"]},
+            { "prefix": "66", "m": "VPCMPISTRM", "o": ["Vdq", "Wdq", "Ib"]},
+            { "prefix": "66", "m": "VPCMPISTRI", "o": ["Vdq", "Wdq", "Ib"]},
             null,
             null,
             null,
             null,
+            
             null,
             null,
             null,
-            { "prefix": "66", "m": "PCMPESTRM", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "PCMPESTRI", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "PCMPISTRM", "o": ["Vdq", "Wdq", "Ib"]},
-            { "prefix": "66", "m": "PCMPISTRI", "o": ["Vdq", "Wdq", "Ib"]},
             null,
             null,
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1303,6 +1387,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1311,6 +1396,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1319,6 +1406,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1327,6 +1415,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1335,6 +1425,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1343,6 +1434,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1351,6 +1444,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1359,6 +1453,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1367,6 +1463,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1375,6 +1472,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1383,6 +1482,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1391,6 +1491,8 @@
             null,
             null,
             null,
+            
+            
             null,
             null,
             null,
@@ -1399,13 +1501,7 @@
             null,
             null,
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
+            
             null,
             null,
             null,
@@ -1414,6 +1510,8 @@
             null,
             null,
             { "prefix": "66", "m": "AESKEYGEN", "o": ["Vdq", "Wdq", "Ib"]},
+            
+            
             null,
             null,
             null,
@@ -1422,6 +1520,7 @@
             null,
             null,
             null,
+            
             null,
             null,
             null,
@@ -1430,6 +1529,9 @@
             null,
             null,
             null,
+            
+            
+            { "precond": "v", "prefix": "F2", "m": "RORX", "o": ["Gy", "Ey", "Ib"]},
             null,
             null,
             null,
@@ -1437,7 +1539,7 @@
             null,
             null,
             null,
-            null,
+            
             null,
             null,
             null,
@@ -1601,26 +1703,6 @@
             { "precond": "d64", "m": "PUSH", "o": "Ev"},
             null
         ],
-        "group_11_0xc6": [
-            { "m": "MOV", "o": ["Eb", "Ib"]},
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "group_11_0xc7": [
-            { "m": "MOV", "o": ["Ev", "Iz"]},
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
         "group_6": [
             { "m": "SLDT", "o": "Mw"},
             { "m": "STR", "o": "Mw"},
@@ -1683,22 +1765,42 @@
             null,
             null
         ],
+        "group_11_0xc6": [
+            { "m": "MOV", "o": ["Eb", "Ib"]},
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "mod": "3", "m": "XABORT", "o": "Ib"}
+        ],
+        "group_11_0xc7": [
+            { "m": "MOV", "o": ["Ev", "Iz"]},
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "mod": "3", "m": "XBEGIN", "o": "Jz"}
+        ],
         "group_12": [
             null,
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSRLW", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSRLW", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSRLW", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSRLW", "o": ["Hx", "Ux", "Ib"]}
             ],
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSRAW", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSRAW", "o": ["Nq", "Ib"]}
+            	{ "mod": "3",                 "m": "PSRAW", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSRAW", "o": ["Hx", "Ux", "Ib"]}
             ],
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSLLW", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSLLW", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSLLW", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSLLW", "o": ["Hx", "Ux", "Ib"]}
             ],
             null
         ],
@@ -1706,18 +1808,18 @@
             null,
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSRLD", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSRLD", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSRLD", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSRLD", "o": ["Hx", "Ux", "Ib"]}
             ],
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSRAD", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSRAD", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSRAD", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSRAD", "o": ["Hx", "Ux", "Ib"]}
             ],
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSLLD", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSLLD", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSLLD", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSLLD", "o": ["Hx", "Ux", "Ib"]}
             ],
             null
         ],
@@ -1725,26 +1827,44 @@
             null,
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSRLQ", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSRLQ", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSRLQ", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSRLQ", "o": ["Hx", "Ux", "Ib"]}
             ],
-            { "prefix": "66", "mod": "3", "m": "PSRLDQ", "o": ["Udq", "Ib"]},
+            { "prefix": "66", "mod": "3", "m": "PSRLDQ", "o": ["Hx", "Ux", "Ib"]},
             null,
             null,
             [
-                { "prefix": "66", "mod": "3", "m": "PSLLQ", "o": ["Udq", "Ib"]},
-                { "mod": "3", "m": "PSLLQ", "o": ["Nq", "Ib"]}
+                { "mod": "3",                 "m": "PSLLQ", "o": ["Nq", "Ib"]},
+                { "prefix": "66", "mod": "3", "m": "VPSLLQ", "o": ["Hx", "Ux", "Ib"]}
             ],
-            { "prefix": "66", "mod": "3", "m": "PSLLDQ", "o": ["Udq", "Ib"]}
+            { "prefix": "66", "mod": "3", "m": "PSLLDQ", "o": ["Hx", "Ux", "Ib"]}
         ],
         "group_15": [
-            { "mod": "not(3)", "m": "FXSAVE", "o": "M"},
-            { "mod": "not(3)", "m": "FXRSTOR", "o": "M"},
-            { "mod": "not(3)", "m": "LDMXCSR", "o": "Md"},
-            { "mod": "not(3)", "m": "STMXCSR", "o": "Md"},
-            null,
-            { "mod": "3", "m": "LFENCE"},
-            { "mod": "3", "m": "MFENCE"},
+            [
+            	{ "mod": "not(3)",            "m": "FXSAVE", "o": "M"},
+            	{ "prefix": "F3", "mod": "3", "m": "RDFSBASE", "o": "Ry"},
+            ],
+            [
+            	{ "mod": "not(3)",            "m": "FXRSTOR", "o": "M"},
+            	{ "prefix": "F3", "mod": "3", "m": "RDGSBASE", "o": "Ry"}
+            ],
+            [
+            	{ "mod": "not(3)",            "m": "LDMXCSR", "o": "Md"},
+            	{ "prefix": "F3", "mod": "3", "m": "WRFSBASE", "o": "Ry"}
+            ],
+            [
+            	{ "mod": "not(3)", "m": "STMXCSR", "o": "Md"},
+            	{ "prefix": "F3", "mod": "3", "m": "WRGSBASE", "o": "Ry"}
+            ],
+            { "mod": "not(3)", "m": "XSAVE"},
+            [
+            	{ "mod": "not(3)", "m": "XRSTOR"},
+            	{ "mod": "3", "m": "LFENCE"},
+            ],
+            [
+            	{ "mod": "not(3)", "m": "XSAVEOPT"},
+            	{ "mod": "3", "m": "MFENCE"},
+            ],
             [
                 { "mod": "not(3)", "m": "CLFLUSH", "o": "M"},
                 { "mod": "3", "m": "SFENCE"}
@@ -1759,7 +1879,18 @@
             null,
             null,
             null
-        ]    },
+        ],
+        "group_17": [
+            null,
+            { "precond": "v", "m": "BLSR", "o": ["By", "Ey"]},
+            { "precond": "v", "m": "BLSMSK", "o": ["By", "Ey"]},
+            { "precond": "v", "m": "BLSI", "o": ["By", "Ey"]},
+            null,
+            null,
+            null,
+            null
+        ]
+    },
     "x87_maps": {
         "x87_0xd8": [
             { "m": "FADD", "o": ["ST0", "ST0"]},
