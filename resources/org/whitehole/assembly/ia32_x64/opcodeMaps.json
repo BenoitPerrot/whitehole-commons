@@ -1716,18 +1716,18 @@
         "group_7": [
             [
                 { "mod": "3", "rm": "3", "m": "VMRESUME"},
-                { "mod": "not(3)", "m": "SGDT", "o": "Ms"},
+                { "mod": "mem", "m": "SGDT", "o": "Ms"},
                 { "mod": "3", "rm": "1", "m": "VMCALL"},
                 { "mod": "3", "rm": "2", "m": "VMLAUNCH"},
                 { "mod": "3", "rm": "4", "m": "VMXOFF"}
             ],
             [
-                { "mod": "not(3)", "m": "SIDT", "o": "Ms"},
+                { "mod": "mem", "m": "SIDT", "o": "Ms"},
                 { "mod": "3", "rm": "1", "m": "MWAIT"},
                 { "mod": "3", "rm": "0", "m": "MONITOR"}
             ],
             [
-                { "mod": "not(3)", "m": "INVLPG", "o": "Mb"},
+                { "mod": "mem", "m": "INVLPG", "o": "Mb"},
                 { "precond": "o64", "mod": "3", "rm": "0", "m": "SWAPGS"}
             ]
         ],
@@ -1841,40 +1841,40 @@
         ],
         "group_15": [
             [
-            	{ "mod": "not(3)",            "m": "FXSAVE", "o": "M"},
+            	{ "mod": "mem",            "m": "FXSAVE", "o": "M"},
             	{ "prefix": "F3", "mod": "3", "m": "RDFSBASE", "o": "Ry"},
             ],
             [
-            	{ "mod": "not(3)",            "m": "FXRSTOR", "o": "M"},
+            	{ "mod": "mem",            "m": "FXRSTOR", "o": "M"},
             	{ "prefix": "F3", "mod": "3", "m": "RDGSBASE", "o": "Ry"}
             ],
             [
-            	{ "mod": "not(3)",            "m": "LDMXCSR", "o": "Md"},
+            	{ "mod": "mem",            "m": "LDMXCSR", "o": "Md"},
             	{ "prefix": "F3", "mod": "3", "m": "WRFSBASE", "o": "Ry"}
             ],
             [
-            	{ "mod": "not(3)", "m": "STMXCSR", "o": "Md"},
+            	{ "mod": "mem", "m": "STMXCSR", "o": "Md"},
             	{ "prefix": "F3", "mod": "3", "m": "WRGSBASE", "o": "Ry"}
             ],
-            { "mod": "not(3)", "m": "XSAVE"},
+            { "mod": "mem", "m": "XSAVE"},
             [
-            	{ "mod": "not(3)", "m": "XRSTOR"},
+            	{ "mod": "mem", "m": "XRSTOR"},
             	{ "mod": "3", "m": "LFENCE"},
             ],
             [
-            	{ "mod": "not(3)", "m": "XSAVEOPT"},
+            	{ "mod": "mem", "m": "XSAVEOPT"},
             	{ "mod": "3", "m": "MFENCE"},
             ],
             [
-                { "mod": "not(3)", "m": "CLFLUSH", "o": "M"},
+                { "mod": "mem", "m": "CLFLUSH", "o": "M"},
                 { "mod": "3", "m": "SFENCE"}
             ]
         ],
         "group_16": [
-            { "mod": "not(3)", "m": "PREFETCHNTA", "o": "M"},
-            { "mod": "not(3)", "m": "PREFETCHT0", "o": "M"},
-            { "mod": "not(3)", "m": "PREFETCHT1", "o": "M"},
-            { "mod": "not(3)", "m": "PREFETCHT2", "o": "M"},
+            { "mod": "mem", "m": "PREFETCHNTA", "o": "M"},
+            { "mod": "mem", "m": "PREFETCHT0", "o": "M"},
+            { "mod": "mem", "m": "PREFETCHT1", "o": "M"},
+            { "mod": "mem", "m": "PREFETCHT2", "o": "M"},
             null,
             null,
             null,
