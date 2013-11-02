@@ -291,7 +291,7 @@
                 {                 "m": "VMOVUPS", "o": ["Wps", "Vps"]},
                 { "prefix": "66", "m": "VMOVUPD", "o": ["Wpd", "Vpd"]},
                 { "prefix": "F3", "m": "VMOVSS", "o": ["Wss", "Hx", "Vss"]},
-                { "prefix": "F2", "m": "VMOVSD", "o": ["Wsd", "Hx", "Vsd"]},
+                { "prefix": "F2", "m": "VMOVSD", "o": ["Wsd", "Hx", "Vsd"]}
             ],
             [
                 {                 "m": "VMOVLPS", "o": ["Vq", "Hq", "Mq"]},
@@ -648,7 +648,7 @@
             { "m": "MOVZX", "o": ["Gv", "Ew"]},
             [
             	{ "m": "JMPE"},
-            	{ "prefix": "F3", "m": "POPCNT", "o": ["Gv", "Ev"]},
+            	{ "prefix": "F3", "m": "POPCNT", "o": ["Gv", "Ev"]}
             ],
             "group_10",
             "group_8",
@@ -1205,7 +1205,7 @@
                 {                         "m": "MOVBE", "o": ["Gy", "My"]},
                 { "prefix": "66",         "m": "MOVBE", "o": ["Gw", "Mw"]},
                 { "prefix": "F2",         "m": "CRC32", "o": ["Gd", "Eb"]},
-                { "prefix": ["66", "F2"], "m": "CRC32", "o": ["Gd", "Eb"]},
+                { "prefix": ["66", "F2"], "m": "CRC32", "o": ["Gd", "Eb"]}
             ],
             [
                 {                         "m": "MOVBE", "o": ["My", "Gy"]},
@@ -1842,7 +1842,7 @@
         "group_15": [
             [
             	{ "mod": "mem",            "m": "FXSAVE", "o": "M"},
-            	{ "prefix": "F3", "mod": "3", "m": "RDFSBASE", "o": "Ry"},
+            	{ "prefix": "F3", "mod": "3", "m": "RDFSBASE", "o": "Ry"}
             ],
             [
             	{ "mod": "mem",            "m": "FXRSTOR", "o": "M"},
@@ -1859,11 +1859,11 @@
             { "mod": "mem", "m": "XSAVE"},
             [
             	{ "mod": "mem", "m": "XRSTOR"},
-            	{ "mod": "3", "m": "LFENCE"},
+            	{ "mod": "3", "m": "LFENCE"}
             ],
             [
             	{ "mod": "mem", "m": "XSAVEOPT"},
-            	{ "mod": "3", "m": "MFENCE"},
+            	{ "mod": "3", "m": "MFENCE"}
             ],
             [
                 { "mod": "mem", "m": "CLFLUSH", "o": "M"},
