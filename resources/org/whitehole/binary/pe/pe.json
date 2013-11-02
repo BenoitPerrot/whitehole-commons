@@ -159,6 +159,12 @@
                 {"offset": 4, "type": "UInt32", "name": "size"}
             ]
         },
+        "HintName" : {
+            "fields": [
+                {"offset": 0, "type": "UInt16", "name": "hint"},
+                {"offset": 2, "type": "StringAsciiz", "name": "name"}
+            ]
+        },
         "ImportDirectoryTableEntry": {
             "fields": [
                 {"offset": 0, "type": "UInt32", "name": "import lookup table R V A"},
